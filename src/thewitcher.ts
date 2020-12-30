@@ -13,6 +13,10 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
 import { preloadTemplates } from './module/preloadTemplates.js';
+import WitcherActor from "./module/actor/actor.js";
+import WitcherItem from "./module/item/item.js";
+import WitcherActorSheet from "./module/actor/actor-sheet.js";
+import WitcherItemSheet from "./module/item/item-sheet.js";
 
 /* ------------------------------------ */
 /* Initialize system					*/
@@ -20,7 +24,34 @@ import { preloadTemplates } from './module/preloadTemplates.js';
 Hooks.once('init', async function() {
 	console.log('thewitcher | Initializing thewitcher');
 
+	game.thewitcher = {
+		WitcherActor,
+		WitcherItem
+	}
+
+	/**
+	 * Set an initiative formula for the system
+	 * @type {String}
+	 */
+	CONFIG.Combat.initiative = {
+		formula: "1d10",
+		decimals: 2
+	};
+
+	// Define custom Entity classes. This will override the default Actor and
+	// Item classes to instead use our extended versions.
+	CONFIG.Actor.entityClass = WitcherActor;
+	CONFIG.Item.entityClass = WitcherItem;
+
+	// Register sheet application classes. This will stop using the core sheets and
+	// instead use our customized versions.
+	Actors.unregisterSheet("core", ActorSheet);
+	Actors.registerSheet("thewitcher", WitcherActorSheet, { makeDefault: true });
+	Items.unregisterSheet("core", ItemSheet);
+	Items.registerSheet("thewitcher", WitcherItemSheet, { makeDefault: true });
+
 	// Assign custom classes and constants here
+
 	
 	// Register custom system settings
 	registerSettings();

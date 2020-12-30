@@ -1,30 +1,28 @@
 {
   "name": "thewitcher",
-  "title": "thewitcher",
-  "description": "",
+  "title": "The Witcher RPG",
+  "description": "An unofficial system for The Witcher RPG by R. Talsorian Games",
   "version": "0.1.0",
-  "author": "",
-  "authors": [
-    {
-      "name": "",
-      "email": "",
-      "url": ""
-    }
-  ],
+  "author": "Ramon Soares",
   "scripts": [],
   "esmodules": ["thewitcher.js"],
   "styles": ["thewitcher.css"],
   "packs": [],
-  "languages": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "templateVersion": 2,
+  "socket": true,
   "gridDistance": 1,
-  "gridUnits": "",
-  "minimumCoreVersion": "0.5.0",
-  "compatibleCoreVersion": "0.5.0",
-  "url": "",
-  "manifest": "",
+  "gridUnits": "m",
+  "minimumCoreVersion": "0.7.6",
+  "compatibleCoreVersion": "0.7.9",
+  "url": "https://github.com/ramon/fvtt-thewitcher",
+  "manifest": "https://github.com/ramon/fvtt-thewitcher/raw/master/system.json",
   "download": "",
-  "license": "",
-  "readme": "",
-  "bugs": "",
-  "changelog": ""
+  "license": "LICENSE"
 }

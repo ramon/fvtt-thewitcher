@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": [],
+    "types": ["character"],
     "templates": []
   },
   "Item": {

@@ -1,0 +1,10 @@
+{
+  "THEWITCHER" : {
+    "language": "English",
+    "version": "0.1.0",
+
+    "actor_sheet": {
+      "name": "Name"
+    }
+  }
+}
