@@ -54,11 +54,6 @@ Hooks.once('init', async function() {
 	// Register The Witcher RPG Die
 	// CONFIG.Dice.types.append(WitcherDie);
 	CONFIG.Dice.terms["w"] = WitcherDie;
-	console.log(CONFIG.Dice.terms);
-
-
-	// Assign custom classes and constants here
-
 	
 	// Register custom system settings
 	registerSettings();
@@ -66,7 +61,9 @@ Hooks.once('init', async function() {
 	// Preload Handlebars templates
 	await preloadTemplates();
 
-	// Register custom sheets (if any)
+	Handlebars.registerHelper('localizeAbility', (abilityId) => game.i18n.localize(`THEWITCHER.actor.abilities.${abilityId}.label`));
+	Handlebars.registerHelper("isResource", (data) => data.hasOwnProperty("max"));
+	Handlebars.registerHelper("getAbilitySkills", (data, abilityId) => data.skills.get(abilityId))
 });
 
 /* ------------------------------------ */

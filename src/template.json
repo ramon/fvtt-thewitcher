@@ -1,6 +1,8 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": [
+      "character"
+    ],
     "templates": {
       "base": {
         "abilities": {
@@ -92,14 +94,283 @@
           },
           "resolve": {
             "value": 0,
+            "max": 0,
             "label": "THEWITCHER.actor.attributes.resolve.label",
             "abbr": "THEWITCHER.actor.attributes.resolve.abbr"
+          }
+        },
+        "skills": {
+          "int": {
+            "awareness": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.awareness"
+            },
+            "business": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.business"
+            },
+            "deduction": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.deduction"
+            },
+            "education": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.education"
+            },
+            "language": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.language"
+            },
+            "monster_lore": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.monster_lore"
+            },
+            "social_etiquette": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.social_etiquette"
+            },
+            "streetwise": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.streetwise"
+            },
+            "tactics": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.tactics"
+            },
+            "teaching": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.teaching"
+            },
+            "wilderness_survival": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.wilderness_survival"
+            }
+          },
+          "ref": {
+            "brawling": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.brawling"
+            },
+            "dodge": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.dodge"
+            },
+            "melee": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.melee"
+            },
+            "riding": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.riding"
+            },
+            "sailing": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.sailing"
+            },
+            "small_blades": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.small_blades"
+            },
+            "staff_spear": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.staff_spear"
+            },
+            "swordsmanship": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.swordsmanship"
+            }
+          },
+          "dex": {
+            "archery": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.archery"
+            },
+            "athletics": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.athletics"
+            },
+            "crossbow": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.crossbow"
+            },
+            "sleight_of_hand": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.sleight_of_hand"
+            },
+            "stealth": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.stealth"
+            }
+          },
+          "body": {
+            "physique": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.physique"
+            },
+            "endurance": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.endurance"
+            }
+          },
+          "emp": {
+            "charisma": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.charisma"
+            },
+            "deceit": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.deceit"
+            },
+            "fine_arts": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.fine_arts"
+            },
+            "gambling": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.gambling"
+            },
+            "grooming_and_style": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.grooming_and_style"
+            },
+            "human_perception": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.human_perception"
+            },
+            "leadership": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.leadership"
+            },
+            "persuasion": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.persuasion"
+            },
+            "performance": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.performance"
+            },
+            "seduction": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.seduction"
+            }
+          },
+          "cra": {
+            "alchemy": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.alchemy"
+            },
+            "crafting": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.crafting"
+            },
+            "disguise": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.disguise"
+            },
+            "first_aid": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.first_aid"
+            },
+            "forgery": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.forgery"
+            },
+            "pick_lock": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.pick_lock"
+            },
+            "trap_crafting": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.trap_crafting"
+            }
+          },
+          "will": {
+            "courage": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.courage"
+            },
+            "hex_weaving": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.hex_weaving"
+            },
+            "intimidation": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.intimidation"
+            },
+            "spell_casting": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.spell_casting"
+            },
+            "resist_magic": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.resist_magic"
+            },
+            "resist_coercion": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.resist_coercion"
+            },
+            "ritual_crafting": {
+              "value": 0,
+              "total": 0,
+              "label": "THEWITCHER.actor.skills.ritual_crafting"
+            }
           }
         }
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "details": {
         "age": null,
         "race": "",

@@ -23,6 +23,7 @@ export default class WitcherActor extends Actor {
 
         // Prepare derived abilities
         this._prepareDerivedAbilities(actorData)
+        this._prepareSkills(actorData)
 
         // Calc Total Ability points
         data.abilities_points = Object.values(data.abilities).reduce((t, {value}) => t + value, 0)
@@ -46,8 +47,49 @@ export default class WitcherActor extends Actor {
         data.attributes.run.max = this._getAbilityValue("spd") * 3;
         data.attributes.leap.max = Math.floor((this._getAbilityValue("spd") * 3) / 5);
         data.attributes.enc.value = body * 10;
+        data.attributes.resolve.value = Math.floor(((this._getAbilityValue("spd") + this._getAbilityValue("int")) / 2) * 5);
 
-        data.attributes.wound_threshold = physicalBase;
+        data.attributes.wound_threshold = {
+            "value": physicalBase,
+            "label": "THEWITCHER.actor_sheet.wound_threshold",
+            "abbr": "THEWITCHER.actor_sheet.wound_threshold",
+            "not_editable": true
+        };
+
+        let bmdBody = body;
+        if ((body % 2)) bmdBody = body + 1;
+        data.attributes.bonus_melee_damage = {
+            "value": -6 + bmdBody,
+            "label": "THEWITCHER.actor_sheet.bonus_melee_damage",
+            "abbr": "THEWITCHER.actor_sheet.bonus_melee_damage",
+            "not_editable": true
+        }
+    }
+
+    private _prepareSkills(actorData: ActorData<any>) {
+        const data = actorData.data;
+        const flags = actorData.flags.thewitcher || {};
+
+        Object.entries(data.skills).forEach(([abilityId, skills]) => {
+            const abilityValue = this._getAbilityValue(abilityId);
+            console.log("Updating Skill of:", abilityId, abilityValue);
+
+            Object.values(skills).forEach((skill) => {
+                skill.abilityId = abilityId;
+                skill.total = skill.value + abilityValue;
+            });
+        });
+
+        // Object.entries(data,skills)
+        // for (let abilityId in data.skills) {
+        //     console.log("Updating Skill of:", abilityId);
+        //     const abilityValue = this._getAbilityValue(abilityId);
+        //
+        //     Object.values(data.skills[abilityId]).forEach(skill => {
+        //         // @ts-ignore
+        //         skill.total = skill.value + abilityValue;
+        //     });
+        // }
     }
 
     private _getAbilityValue(abilityId: string): number {
@@ -55,7 +97,7 @@ export default class WitcherActor extends Actor {
         const data = actorData.data;
         const abilityData = data.abilities[abilityId];
 
-        if (abilityData.temp != null || abilityData.temp > 0) {
+        if (abilityData.temp != null && abilityData.temp > 0) {
             return abilityData.temp;
         }
 
@@ -67,7 +109,7 @@ export default class WitcherActor extends Actor {
      * @param {String} abilityId    The ability id (e.g. "int")
      * @param options               Options which configure how ability tests are rolled
      */
-    rollAbility(abilityId: string, options : object = {}, templateData = {}) {
+    rollAbility(abilityId: string, options: object = {}, templateData = {}) {
         const label = game.i18n.localize(`THEWITCHER.actor.abilities.${abilityId}.label`);
         const abilityValue = this._getAbilityValue(abilityId);
 
@@ -84,4 +126,6 @@ export default class WitcherActor extends Actor {
         rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});
         return d10Roll(rollData);
     }
+
+
 }

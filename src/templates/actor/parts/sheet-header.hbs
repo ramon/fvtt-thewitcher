@@ -6,10 +6,10 @@
                 {{localize ability.abbr}}
             </label>
             <input name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}"
-                   data-dtype="Number"
+                   data-dtype="Number" min="0"
                    id="actor-ability-{{key}}"/>
             <input name="data.abilities.{{key}}.temp" type="number" value="{{ability.temp}}"
-                   data-dtype="Number"
+                   data-dtype="Number" min="0"
                    id="actor-ability-{{key}}-temp"/>
         </div>
     {{/each}}
@@ -75,29 +75,14 @@
                 <label for="actor-attribute-{{key}}" title="{{localize attribute.label}}">{{localize
                         attribute.abbr}}</label>
                 <input name="data.attributes.{{key}}.value" type="number" value="{{attribute.value}}"
-                       data-dtype="Number"
+                       data-dtype="Number" min="0" {{#if attribute.not_editable}}disabled{{/if}}
                        id="actor-attribute-{{key}}"/>
-                {{#unless attribute.mutable}}
+                {{#if (isResource attribute)}}
                     <input name="data.attributes.{{key}}.max" type="number" value="{{attribute.max}}"
-                           data-dtype="Number"
+                           data-dtype="Number" disabled
                            id="actor-attribute-{{key}}-max"/>
-                {{/unless}}
-
+                {{/if}}
             </div>
         {{/unless}}
     {{/each}}
-    <div class="ability flexrow flex-group-center flex-gap">
-        <label for="actor-attributes-wound-threshold">{{localize
-                "THEWITCHER.actor_sheet.wound_threshold"}}</label>
-        <input name="data.attributes.wound_threshold" type="number" value="{{attributes.wound_threshold}}"
-               data-dtype="Number" disabled
-               id="actor-attributes-wound-threshold"/>
-    </div>
-    <div class="ability flexrow flex-group-center flex-gap">
-        <label for="actor-attributes-bonus-melee-damage">{{localize
-                "THEWITCHER.actor_sheet.bonus_melee_damage"}}</label>
-        <input name="data.attributes.bonus_melee_damage" type="number" value="{{attributes.bonus_melee_damage}}"
-               data-dtype="Number" disabled
-               id="actor-attributes-bonus-melee-damage"/>
-    </div>
 </div>
