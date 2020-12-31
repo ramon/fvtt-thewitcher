@@ -1,0 +1,55 @@
+&.sheet {
+  .sheet-header {
+    img.token {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      border: 3px groove darkred;
+      box-shadow: 0 0 12px red;
+    }
+  }
+
+  .basic-details {
+  }
+
+  .abilities, .derived-abilities {
+    flex: 0 0 180px;
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 20px;
+    }
+
+    .abilities-title {
+      font-size: 10px;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: right;
+      margin-right: 16px;
+    }
+  }
+
+  .abilities {
+    margin-right: 30px !important;
+    padding-left: 20px;
+  }
+  .derived-abilities {
+    margin-left: 30px !important;
+    padding-right: 20px;
+
+    .ability {
+      flex-direction: row-reverse;
+    }
+
+    .abilities-title {
+      text-align: left;
+      margin-right: 0;
+      margin-left: 6px;
+    }
+
+  }
+}

@@ -4,7 +4,7 @@ export default class WitcherActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["thewitcher", "sheet", "actor"],
             template: "systems/thewitcher/templates/actor/actor-sheet.hbs",
-            width: 600, height: 600,
+            width: 850, height: 600,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary" }]
         });
     }

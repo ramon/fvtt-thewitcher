@@ -1,0 +1,26 @@
+.window-content {
+  background: @sheet-background;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  border: 1px solid #000;
+  box-shadow: inset 0 0 10px darkgray;
+  background: whitesmoke;
+  border-radius: unset;
+}
+
+
+form {
+  .form-group {
+    box-sizing: content-box;
+    margin: 2px 5px;
+
+    label {
+      text-transform: uppercase;
+      flex: unset;
+      margin-right: 10px;
+    }
+  }
+}

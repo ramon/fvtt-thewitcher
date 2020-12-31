@@ -3,8 +3,99 @@
     "language": "English",
     "version": "0.1.0",
 
+    "actor": {
+      "age": "Age",
+      "race": "Race",
+      "gender": "Gender",
+      "profession": "Profession",
+      "profession_abbr": "Prof",
+      "origin": "Origin",
+
+      "abilities": {
+        "int": {
+          "label": "Intelligence",
+          "abbr": "INT"
+        },
+        "ref": {
+          "label": "Reflexes",
+          "abbr": "REF"
+        },
+        "dex": {
+          "label": "Dexterity",
+          "abbr": "DEX"
+        },
+        "body": {
+          "label": "Body",
+          "abbr": "BODY"
+        },
+        "spd": {
+          "label": "Speed",
+          "abbr": "SPD"
+        },
+        "emp": {
+          "label": "Empathy",
+          "abbr": "EMP"
+        },
+        "cra": {
+          "label": "Craft",
+          "abbr": "CRA"
+        },
+        "will": {
+          "label": "Will",
+          "abbr": "WILL"
+        },
+        "luck": {
+          "label": "Luck",
+          "abbr": "LUCK"
+        }
+      },
+
+      "attributes": {
+        "stun" : {
+          "label": "Stun",
+          "abbr": "STUN"
+        },
+        "run": {
+          "label": "Run",
+          "abbr": "RUN"
+        },
+        "leap": {
+          "label": "Leap",
+          "abbr": "LEAP"
+        },
+        "hp": {
+          "label": "Health Points",
+          "abbr": "HP"
+        },
+        "sta": {
+          "label": "Stamina",
+          "abbr": "STA"
+        },
+        "enc": {
+          "label": "Encumbrance",
+          "abbr": "ENC"
+        },
+        "rec": {
+          "label": "Recovery",
+          "abbr": "REC"
+        },
+        "resolve": {
+          "label": "resolve",
+          "abbr": "Resolve"
+        },
+        "vigor": {
+          "label": "Vigor",
+          "abbr": "Vigor"
+        }
+      }
+    },
     "actor_sheet": {
-      "name": "Name"
+      "name": "Name",
+      "temp": "Temp",
+      "max_curr": "Maximum / Current",
+      "ability_points": "Total Points",
+      "wound_threshold": "Wound Threshold",
+      "bonus_melee_damage": "Bonus Melee DMG"
     }
   }
 }

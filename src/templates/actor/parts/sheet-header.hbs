@@ -1,0 +1,102 @@
+<div class="abilities flexcol">
+    <span class="abilities-title">{{localize "THEWITCHER.actor_sheet.temp"}}</span>
+    {{#each data.abilities as |ability key|}}
+        <div class="ability flexrow flex-group-center flex-gap">
+            <label for="actor-ability-{{key}}" title="{{localize ability.label}}">{{localize
+                    ability.abbr}}</label>
+            <input name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}"
+                   data-dtype="Number"
+                   id="actor-ability-{{key}}"/>
+            <input name="data.abilities.{{key}}.temp" type="number" value="{{ability.temp}}"
+                   data-dtype="Number"
+                   id="actor-ability-{{key}}-temp"/>
+        </div>
+    {{/each}}
+    <div class="ability flexrow flex-group-center flex-gap">
+        <label for="actor-ability-points">{{localize "THEWITCHER.actor_sheet.ability_points"}}</label>
+        <input name="data.abilities_points" type="number" value="{{data.abilities_points}}"
+               data-dtype="Number" disabled
+               id="actor-ability-points"/>
+    </div>
+</div>
+
+<div class="basic-details flexcol flex-center">
+    <img class="token" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="{{actor.name}}"/>
+
+    {{!-- Name and Age --}}
+    <div class="flexrow flex-group-left">
+        <div class="form-group flex3">
+            <label for="actor-name">{{localize "THEWITCHER.actor_sheet.name"}}</label>
+            <input name="name" type="text" value="{{actor.name}}"
+                   id="actor-name"/>
+        </div>
+        <div class="form-group actor">
+            <label for="actor-details-age">{{localize "THEWITCHER.actor.age"}}</label>
+            <input name="data.details.age" type="number" value="{{data.details.age}}" data-dtype="Number"
+                   id="actor-details-age"/>
+        </div>
+    </div>
+
+    {{!-- Race and Gender --}}
+    <div class="flexrow flex-group-left">
+        <div class="form-group flex1">
+            <label for="actor-details-race">{{localize "THEWITCHER.actor.race"}}</label>
+            <input name="data.details.race" type="text" value="{{data.details.race}}"
+                   id="actor-details-race"/>
+        </div>
+        <div class="form-group">
+            <label for="actor-details-gender">{{localize "THEWITCHER.actor.gender"}}</label>
+            <input name="data.details.gender" type="text" value="{{data.details.gender}}"
+                   id="actor-details-gender"/>
+        </div>
+    </div>
+
+    {{!-- PROF AND ORIGIN --}}
+    <div class="flexrow flex-group-left">
+        <div class="form-group">
+            <label for="actor-details-profession">{{localize "THEWITCHER.actor.profession_abbr"}}</label>
+            <input name="data.details.profession" type="text" value="{{data.details.profession}}"
+                   id="actor-details-profession"/>
+        </div>
+        <div class="form-group">
+            <label for="actor-details-origin">{{localize "THEWITCHER.actor.origin"}}</label>
+            <input name="data.details.origin" type="text" value="{{data.details.origin}}"
+                   id="actor-details-origin"/>
+        </div>
+    </div>
+</div>
+
+<div class="derived-abilities flexcol">
+    <span class="abilities-title">{{localize "THEWITCHER.actor_sheet.max_curr"}}</span>
+    {{#each data.attributes as |attribute key|}}
+        {{#unless attribute.disabled}}
+            <div class="ability flexrow flex-group-center flex-gap">
+                <label for="actor-attribute-{{key}}" title="{{localize attribute.label}}">{{localize
+                        attribute.abbr}}</label>
+                <input name="data.attributes.{{key}}.value" type="number" value="{{attribute.value}}"
+                       data-dtype="Number"
+                       id="actor-attribute-{{key}}"/>
+                {{#unless attribute.mutable}}
+                    <input name="data.attributes.{{key}}.max" type="number" value="{{attribute.max}}"
+                           data-dtype="Number"
+                           id="actor-attribute-{{key}}-max"/>
+                {{/unless}}
+
+            </div>
+        {{/unless}}
+    {{/each}}
+    <div class="ability flexrow flex-group-center flex-gap">
+        <label for="actor-attributes-wound-threshold">{{localize
+                "THEWITCHER.actor_sheet.wound_threshold"}}</label>
+        <input name="data.attributes.wound_threshold" type="number" value="{{attributes.wound_threshold}}"
+               data-dtype="Number" disabled
+               id="actor-attributes-wound-threshold"/>
+    </div>
+    <div class="ability flexrow flex-group-center flex-gap">
+        <label for="actor-attributes-bonus-melee-damage">{{localize
+                "THEWITCHER.actor_sheet.bonus_melee_damage"}}</label>
+        <input name="data.attributes.bonus_melee_damage" type="number" value="{{attributes.bonus_melee_damage}}"
+               data-dtype="Number" disabled
+               id="actor-attributes-bonus-melee-damage"/>
+    </div>
+</div>

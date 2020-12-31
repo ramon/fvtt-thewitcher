@@ -1,7 +1,113 @@
 {
   "Actor": {
     "types": ["character"],
-    "templates": []
+    "templates": {
+      "base": {
+        "abilities": {
+          "int": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.int.label",
+            "abbr": "THEWITCHER.actor.abilities.int.abbr"
+          },
+          "ref": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.ref.label",
+            "abbr": "THEWITCHER.actor.abilities.ref.abbr"
+          },
+          "body": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.body.label",
+            "abbr": "THEWITCHER.actor.abilities.body.abbr"
+          },
+          "dex": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.dex.label",
+            "abbr": "THEWITCHER.actor.abilities.dex.abbr"
+          },
+          "spd": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.spd.label",
+            "abbr": "THEWITCHER.actor.abilities.spd.abbr"
+          },
+          "emp": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.emp.label",
+            "abbr": "THEWITCHER.actor.abilities.emp.abbr"
+          },
+          "cra": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.cra.label",
+            "abbr": "THEWITCHER.actor.abilities.cra.abbr"
+          },
+          "will": {
+            "value": 0,
+            "label": "THEWITCHER.actor.abilities.will.label",
+            "abbr": "THEWITCHER.actor.abilities.will.abbr"
+          },
+          "luck": {
+            "value": 0,
+            "max": 0,
+            "label": "THEWITCHER.actor.abilities.luck.label",
+            "abbr": "THEWITCHER.actor.abilities.luck.abbr"
+          }
+        },
+        "attributes": {
+          "stun": {
+            "value": 0,
+            "max": 0,
+            "label": "THEWITCHER.actor.attributes.stun.label",
+            "abbr": "THEWITCHER.actor.attributes.stun.abbr"
+          },
+          "run": {
+            "value": 0,
+            "label": "THEWITCHER.actor.attributes.run.label",
+            "abbr": "THEWITCHER.actor.attributes.run.abbr"
+          },
+          "leap": {
+            "value": 0,
+            "label": "THEWITCHER.actor.attributes.leap.label",
+            "abbr": "THEWITCHER.actor.attributes.leap.abbr"
+          },
+          "hp": {
+            "value": 0,
+            "max": 0,
+            "label": "THEWITCHER.actor.attributes.hp.label",
+            "abbr": "THEWITCHER.actor.attributes.hp.abbr"
+          },
+          "sta": {
+            "value": 0,
+            "max": 0,
+            "label": "THEWITCHER.actor.attributes.sta.label",
+            "abbr": "THEWITCHER.actor.attributes.sta.abbr"
+          },
+          "enc": {
+            "value": 0,
+            "label": "THEWITCHER.actor.attributes.enc.label",
+            "abbr": "THEWITCHER.actor.attributes.enc.abbr"
+          },
+          "rec": {
+            "value": 0,
+            "label": "THEWITCHER.actor.attributes.rec.label",
+            "abbr": "THEWITCHER.actor.attributes.rec.abbr"
+          },
+          "resolve": {
+            "value": 0,
+            "label": "THEWITCHER.actor.attributes.resolve.label",
+            "abbr": "THEWITCHER.actor.attributes.resolve.abbr"
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "details": {
+        "age": null,
+        "race": "",
+        "gender": "",
+        "profession": "",
+        "origin": ""
+      }
+    }
   },
   "Item": {
     "types": [],
