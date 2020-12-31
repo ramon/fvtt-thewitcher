@@ -17,6 +17,7 @@ import WitcherActor from "./module/actor/actor.js";
 import WitcherItem from "./module/item/item.js";
 import WitcherActorSheet from "./module/actor/actor-sheet.js";
 import WitcherItemSheet from "./module/item/item-sheet.js";
+import {WitcherDie} from "./module/die.js";
 
 /* ------------------------------------ */
 /* Initialize system					*/
@@ -49,6 +50,12 @@ Hooks.once('init', async function() {
 	Actors.registerSheet("thewitcher", WitcherActorSheet, { makeDefault: true });
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("thewitcher", WitcherItemSheet, { makeDefault: true });
+
+	// Register The Witcher RPG Die
+	// CONFIG.Dice.types.append(WitcherDie);
+	CONFIG.Dice.terms["w"] = WitcherDie;
+	console.log(CONFIG.Dice.terms);
+
 
 	// Assign custom classes and constants here
 

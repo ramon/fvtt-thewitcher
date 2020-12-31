@@ -96,6 +96,10 @@
       "ability_points": "Total Points",
       "wound_threshold": "Wound Threshold",
       "bonus_melee_damage": "Bonus Melee DMG"
+    },
+
+    "rolls": {
+      "ability_prompt_title": "{ability} Ability Check"
     }
   }
 }

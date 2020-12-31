@@ -1,9 +1,10 @@
 <div class="abilities flexcol">
     <span class="abilities-title">{{localize "THEWITCHER.actor_sheet.temp"}}</span>
     {{#each data.abilities as |ability key|}}
-        <div class="ability flexrow flex-group-center flex-gap">
-            <label for="actor-ability-{{key}}" title="{{localize ability.label}}">{{localize
-                    ability.abbr}}</label>
+        <div class="ability flexrow flex-group-center flex-gap" data-ability="{{key}}">
+            <label for="actor-ability-{{key}}" title="{{localize ability.label}}" class="ability-name">
+                {{localize ability.abbr}}
+            </label>
             <input name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}"
                    data-dtype="Number"
                    id="actor-ability-{{key}}"/>
