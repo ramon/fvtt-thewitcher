@@ -4,7 +4,8 @@ export default class WitcherActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["thewitcher", "sheet", "actor"],
             template: "systems/thewitcher/templates/actor/actor-sheet.hbs",
-            width: 850, height: 600,
+            width: 850, height: 700,
+            resizable: false,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary" }]
         });
     }
@@ -33,6 +34,7 @@ export default class WitcherActorSheet extends ActorSheet {
         if (this.actor.owner) {
             // Ability Checks
             html.find(".ability-name").click(this._onRollAbilityTest.bind(this));
+            html.find(".skill-name, .skill-field.rollable").click(this._onRollSkillTest.bind(this));
         }
 
     }
@@ -47,5 +49,18 @@ export default class WitcherActorSheet extends ActorSheet {
         event.preventDefault();
         let ability = event.currentTarget.parentElement.dataset.ability;
         this.actor.rollAbility(ability, {event: event});
+    }
+
+    /**
+     * Handle ability rolls.
+     *
+     * @param {Event} event The originating click event
+     * @private
+     */
+    _onRollSkillTest(event) {
+        event.preventDefault();
+        let abilityId = event.currentTarget.parentElement.dataset.abilityId;
+        let skillId = event.currentTarget.parentElement.dataset.skillId
+        this.actor.rollSkill(abilityId, skillId, {event: event});
     }
 }

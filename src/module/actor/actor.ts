@@ -72,24 +72,12 @@ export default class WitcherActor extends Actor {
 
         Object.entries(data.skills).forEach(([abilityId, skills]) => {
             const abilityValue = this._getAbilityValue(abilityId);
-            console.log("Updating Skill of:", abilityId, abilityValue);
 
             Object.values(skills).forEach((skill) => {
                 skill.abilityId = abilityId;
                 skill.total = skill.value + abilityValue;
             });
         });
-
-        // Object.entries(data,skills)
-        // for (let abilityId in data.skills) {
-        //     console.log("Updating Skill of:", abilityId);
-        //     const abilityValue = this._getAbilityValue(abilityId);
-        //
-        //     Object.values(data.skills[abilityId]).forEach(skill => {
-        //         // @ts-ignore
-        //         skill.total = skill.value + abilityValue;
-        //     });
-        // }
     }
 
     private _getAbilityValue(abilityId: string): number {
@@ -102,6 +90,15 @@ export default class WitcherActor extends Actor {
         }
 
         return abilityData.value;
+    }
+
+    private _getSkillValue(abilityId, skillId: string, total = false): number {
+        const actorData = this.data;
+        const data = actorData.data;
+        const skillData = data.skills[abilityId][skillId];
+
+        if (total) return skillData.total;
+        return skillData.value;
     }
 
     /**
@@ -127,5 +124,29 @@ export default class WitcherActor extends Actor {
         return d10Roll(rollData);
     }
 
+    /**
+     * Roll a Skill test.
+     * @param {String} abilityId    The ability id (e.g. "int")
+     * @param {String} skillId    The ability id (e.g. "business")
+     * @param options               Options which configure how ability tests are rolled
+     */
+    rollSkill(abilityId: string, skillId: string, options: object = {}, templateData = {}) {
+        const label = game.i18n.localize(`THEWITCHER.actor.skills.${skillId}`);
+        const abilityValue = this._getAbilityValue(abilityId);
+        const skillValue = this._getSkillValue(abilityId, skillId);
+
+        const terms = ["@mod + @base"];
+        const data = {mod: abilityValue, base: skillValue}
+
+        const rollData = mergeObject(options, {
+            terms: terms,
+            data: data,
+            title: game.i18n.format("THEWITCHER.rolls.skill_prompt_title", {skill: label}),
+            messageData: {"flags.thewitcher.roll": {type: "skill", abilityValue, skillValue}}
+        });
+        // @ts-ignore
+        rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});
+        return d10Roll(rollData);
+    }
 
 }

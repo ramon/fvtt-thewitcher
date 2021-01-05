@@ -1,8 +1,18 @@
 .window-content {
   background: @sheet-background;
   font-family: @font-primary;
+  overflow: hidden;
 }
 
 nav.sheet-tabs {
 
+}
+
+section.sheet-body {
+  display: contents;
+
+  .tab {
+    overflow-x: hidden;
+    overflow-y: overlay;
+  }
 }

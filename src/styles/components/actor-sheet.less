@@ -1,3 +1,4 @@
+@import "../global/_window";
 &.sheet {
   .sheet-header {
     img.token {
@@ -13,7 +14,7 @@
   .basic-details {
   }
 
-  .abilities, .derived-abilities {
+  .abilities, .derived-abilities, .skills {
     flex: 0 0 180px;
 
     label {
@@ -29,16 +30,34 @@
       font-weight: 300;
       text-transform: uppercase;
       text-align: right;
-      margin-right: 16px;
-
-      .rollable();
+      margin-right: 10px;
     }
   }
 
   .abilities {
     margin-right: 30px !important;
     padding-left: 20px;
+
+    .ability-name {
+      position: relative;
+      .rollable();
+
+      &:hover::before {
+        background-image: url("/icons/svg/d10-grey.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: -2px;
+      }
+    }
   }
+
   .derived-abilities {
     margin-left: 30px !important;
     padding-right: 20px;
@@ -53,5 +72,26 @@
       margin-left: 6px;
     }
 
+  }
+
+  .skills {
+    .skills-title {
+      text-align: center;
+    }
+
+    .skill-field {
+      text-align: center;
+
+      &.rollable:hover {
+
+        input {
+          cursor: pointer;
+          background-image: url("/icons/svg/d10-grey.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+    }
   }
 }

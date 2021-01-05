@@ -152,7 +152,8 @@
     },
 
     "rolls": {
-      "ability_prompt_title": "{ability} Ability Check"
+      "ability_prompt_title": "{ability} Ability Check",
+      "skill_prompt_title": "{skill} Skill Check"
     }
   }
 }
