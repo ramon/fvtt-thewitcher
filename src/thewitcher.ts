@@ -18,6 +18,7 @@ import WitcherItem from "./module/item/item.js";
 import WitcherActorSheet from "./module/actor/actor-sheet.js";
 import WitcherItemSheet from "./module/item/item-sheet.js";
 import {WitcherDie} from "./module/die.js";
+import {THEWITCHER} from "./module/config.js";
 
 /* ------------------------------------ */
 /* Initialize system					*/
@@ -26,9 +27,14 @@ Hooks.once('init', async function() {
 	console.log('thewitcher | Initializing thewitcher');
 
 	game.thewitcher = {
-		WitcherActor,
-		WitcherItem
+		config: THEWITCHER,
+		entities: {
+			WitcherActor,
+			WitcherItem
+		}
 	}
+
+	CONFIG.THEWITCHER = THEWITCHER;
 
 	/**
 	 * Set an initiative formula for the system

@@ -1,4 +1,5 @@
 @import "../global/_window";
+
 &.sheet {
   .sheet-header {
     img.token {
@@ -14,9 +15,8 @@
   .basic-details {
   }
 
-  .abilities, .derived-abilities, .skills {
-    flex: 0 0 180px;
 
+  .abilities, .derived-abilities, .skills {
     label {
       font-weight: bold;
     }
@@ -34,6 +34,10 @@
     }
   }
 
+  .abilities, .derived-abilities {
+    flex: 0 0 180px;
+  }
+
   .abilities {
     margin-right: 30px !important;
     padding-left: 20px;
@@ -43,10 +47,7 @@
       .rollable();
 
       &:hover::before {
-        background-image: url("/icons/svg/d10-grey.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
+        .d10();
         display: inline-block;
         width: 20px;
         height: 20px;
@@ -74,7 +75,7 @@
 
   }
 
-  .skills {
+  .tab-skills {
     .skills-title {
       text-align: center;
     }
@@ -86,12 +87,80 @@
 
         input {
           cursor: pointer;
-          background-image: url("/icons/svg/d10-grey.svg");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
+          .d10();
         }
       }
+    }
+  }
+
+  .tab-profession {
+    textarea {
+      background-color: rgba(whitesmoke, 0.5);
+      border: none;
+      margin: 5px 0;
+      resize: none;
+    }
+
+    h3, h4 {
+      flex: 3;
+
+      input {
+        border: none;
+        background-color: unset;
+        box-shadow: none;
+        text-align: left;
+        border-bottom: 1px groove black;
+      }
+    }
+
+    .profession-skill {
+      .profession-skill-ability {
+        flex: 0 0 60px;
+        border-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: unset;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+          background-color: inherit;
+          border-color: #000;
+          -webkit-appearance: auto;
+          -moz-appearance: auto;
+          appearance: auto;
+        }
+      }
+
+      .profession-skill-level {
+        flex: 0 0 100px;
+      }
+    }
+
+    .profession-skill.main {
+      margin: 12px 20px;
+      border: 2px dashed;
+      padding: 8px
+    }
+
+    .profession-skill-tree {
+      h3 input {
+        text-align: center;
+        text-transform: uppercase;
+        border-bottom: 4px groove var(--color);
+        font-weight: bold;
+      }
+
+      .profession-skill.tier {
+        border: 2px dashed var(--color);
+        padding: 4px;
+        margin-bottom: 10px;
+      }
+
+      &:nth-child(1) { --color: #7991c6; }
+      &:nth-child(2) { --color: #afeac6; }
+      &:nth-child(3) { --color: #e0a596; }
     }
   }
 }

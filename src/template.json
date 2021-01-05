@@ -365,17 +365,85 @@
             }
           }
         }
+      },
+      "profession": {
+        "profession": {
+          "name": "",
+          "main": {
+            "name": "",
+            "ability": "",
+            "description": "",
+            "level": ""
+          },
+          "tree": [
+            {
+              "name": "",
+              "chain": [{
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }]
+            }, {
+              "name": "",
+              "chain": [{
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }]
+            }, {
+              "name": "",
+              "chain": [{
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }, {
+                "name": "",
+                "ability": "",
+                "description": "",
+                "level": ""
+              }]
+            }
+          ]
+        }
       }
     },
     "character": {
       "templates": [
-        "base"
+        "base",
+        "profession"
       ],
       "details": {
         "age": null,
         "race": "",
         "gender": "",
-        "profession": "",
         "origin": ""
       }
     }

@@ -5,8 +5,12 @@ export default class WitcherActorSheet extends ActorSheet {
             classes: ["thewitcher", "sheet", "actor"],
             template: "systems/thewitcher/templates/actor/actor-sheet.hbs",
             width: 850, height: 700,
-            resizable: false,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary" }]
+            resizable: true,
+            scrollY: [
+                ".tab-skills",
+                ".tab-professions"
+            ],
+            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary"}]
         });
     }
 
@@ -14,7 +18,10 @@ export default class WitcherActorSheet extends ActorSheet {
      * @override
      */
     getData(): ActorSheetData<any> {
-        const data = super.getData();
+        let data = mergeObject(super.getData(), {
+            // @ts-ignore
+            config: CONFIG.THEWITCHER
+        });
 
         return data;
     }
@@ -45,7 +52,7 @@ export default class WitcherActorSheet extends ActorSheet {
      * @param {Event} event The originating click event
      * @private
      */
-     _onRollAbilityTest(event) {
+    _onRollAbilityTest(event) {
         event.preventDefault();
         let ability = event.currentTarget.parentElement.dataset.ability;
         this.actor.rollAbility(ability, {event: event});
