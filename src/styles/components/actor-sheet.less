@@ -1,0 +1,166 @@
+@import "../global/_window";
+
+&.sheet {
+  .sheet-header {
+    img.token {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      border: 3px groove darkred;
+      box-shadow: 0 0 12px red;
+    }
+  }
+
+  .basic-details {
+  }
+
+
+  .abilities, .derived-abilities, .skills {
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      max-width: 35px;
+    }
+
+    .abilities-title {
+      font-size: 10px;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: right;
+      margin-right: 10px;
+    }
+  }
+
+  .abilities, .derived-abilities {
+    flex: 0 0 180px;
+  }
+
+  .abilities {
+    margin-right: 30px !important;
+    padding-left: 20px;
+
+    .ability-name {
+      position: relative;
+      .rollable();
+
+      &:hover::before {
+        .d10();
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: -2px;
+      }
+    }
+  }
+
+  .derived-abilities {
+    margin-left: 30px !important;
+    padding-right: 20px;
+
+    .ability {
+      flex-direction: row-reverse;
+    }
+
+    .abilities-title {
+      text-align: left;
+      margin-right: 0;
+      margin-left: 6px;
+    }
+
+  }
+
+  .tab-skills {
+    .skills-title {
+      text-align: center;
+    }
+
+    .skill-field {
+      text-align: center;
+
+      &.rollable:hover {
+
+        input {
+          cursor: pointer;
+          .d10();
+        }
+      }
+    }
+  }
+
+  .tab-profession {
+    textarea {
+      background-color: rgba(whitesmoke, 0.5);
+      border: none;
+      margin: 5px 0;
+      resize: none;
+    }
+
+    h3, h4 {
+      flex: 3;
+
+      input {
+        border: none;
+        background-color: unset;
+        box-shadow: none;
+        text-align: left;
+        border-bottom: 1px groove black;
+      }
+    }
+
+    .profession-skill {
+      .profession-skill-ability {
+        flex: 0 0 60px;
+        border-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: unset;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+          background-color: inherit;
+          border-color: #000;
+          -webkit-appearance: auto;
+          -moz-appearance: auto;
+          appearance: auto;
+        }
+      }
+
+      .profession-skill-level {
+        flex: 0 0 100px;
+      }
+    }
+
+    .profession-skill.main {
+      margin: 12px 20px;
+      border: 2px dashed;
+      padding: 8px
+    }
+
+    .profession-skill-tree {
+      h3 input {
+        text-align: center;
+        text-transform: uppercase;
+        border-bottom: 4px groove var(--color);
+        font-weight: bold;
+      }
+
+      .profession-skill.tier {
+        border: 2px dashed var(--color);
+        padding: 4px;
+        margin-bottom: 10px;
+      }
+
+      &:nth-child(1) { --color: #7991c6; }
+      &:nth-child(2) { --color: darkgreen; }
+      &:nth-child(3) { --color: #e0a596; }
+    }
+  }
+}

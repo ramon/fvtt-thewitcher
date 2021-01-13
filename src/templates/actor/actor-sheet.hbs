@@ -1,10 +1,97 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.value}}" placeholder="{{localize "THEWITCHER.actor_sheet.name"}}></h1>
-        </div>
+    <header class="sheet-header flex-gap">
+        {{> "systems/thewitcher/templates/actor/parts/sheet-header.hbs"}}
     </header>
 
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="skills">Skills</a>
+        <a class="item" data-tab="profession">Profession Skills</a>
+        <a class="item" data-tab="items">Gears & Inventory</a>
+        <a class="item" data-tab="spells">Magic & Spells</a>
+        <a class="item" data-tab="lifepath">Life path</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Skills Tab--}}
+        <div class="tab tab-skills" data-group="primary" data-tab="skills">
+            {{> "systems/thewitcher/templates/actor/parts/actor-skills.hbs" }}
+        </div>
+
+        {{!-- Profession Tab--}}
+        <div class="tab tab-profession" data-group="primary" data-tab="profession">
+            <div class="flexcol">
+                <div class="profession-skill main">
+                    <div class="profession-header flexrow">
+                        <h3 class="profession-name ">
+                            <input name="data.profession.main.name" type="text"
+                                   value="{{ data.profession.main.name }}"
+                                   placeholder="Core Skill Name"/>
+                        </h3>
+                        <select name="data.profession.main.ability" class="profession-skill-ability">
+                            {{selectOptions config.professionAbilities selected=data.profession.main.ability
+                                            localize=true}}
+                        </select>
+                        <div class="form-group profession-skill-level">
+                            <label for="actor-profession-main-lvl">Level</label>
+                            <input name="data.profession.main.level" type="number" data-dtype="Number"
+                                   value="{{data.profession.main.level}}">
+                        </div>
+                    </div>
+                    <div class="profession-body">
+                    <textarea name="data.profession.main.description" cols="30"
+                              rows="6">{{data.profession.main.description}}</textarea>
+<!--                        <button class="profession-roll rollable" type="button">ROLL</button>-->
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="grid grid-3col">
+                    {{#each data.profession.tree as |tree key|}}
+                        <div class="profession-skill-tree">
+                            <h3>
+                                <input name="data.profession.tree.{{key}}.name" type="text"
+                                       value="{{ tree.name }}"
+                                       placeholder="Tree Skill Name"/>
+                            </h3>
+                            <hr/>
+                            {{#each tree.chain as |skill skillId|}}
+                                <div class="profession-skill tier">
+                                    <div class="profession-header flexcol">
+                                        <h4 class="profession-name">
+                                            <input name="data.profession.tree.{{key}}.chain.{{skillId}}.name"
+                                                   type="text"
+                                                   value="{{ skill.name }}"
+                                                   placeholder="Tier Skill Name"/>
+                                        </h4>
+                                        <div class="flexrow">
+                                            <select name="data.profession.tree.{{key}}.chain.{{skillId}}.ability">
+                                                {{selectOptions ../../config.professionAbilities
+                                                                selected=skill.ability localize=true}}
+                                            </select>
+                                            <div class="form-group">
+                                                <label for="actor-profession-main-lvl">Level</label>
+                                                <input name="data.profession.tree.{{key}}.chain.{{skillId}}.level"
+                                                       type="number" data-dtype="Number"
+                                                       value="{{skill.level}}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profession-description">
+                                    <textarea name="data.profession.tree.{{key}}.chain.{{skillId}}.description"
+                                              cols="30"
+                                              rows="6">{{skill.description}}</textarea>
+<!--                                        <button class="profession-roll rollable" type="button">ROLL</button>-->
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
 </form>

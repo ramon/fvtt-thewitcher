@@ -1,0 +1,29 @@
+<table class="skills">
+    <thead class="skills-title">
+    <tr>
+        <td colspan="3" data-ability-id="{{abilityId}}">{{ localizeAbility abilityId }}</td>
+    </tr>
+    <tr>
+        <td style="width: 60%;">name</td>
+        <td>base</td>
+        <td>total</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each skills as |skill id|}}
+        <tr class="item" data-ability-id="{{skill.abilityId}}" data-skill-id="{{id}}">
+            <td class="skill-name">{{localize skill.label}}</td>
+            <td class="skill-field">
+                <input name="data.skills.{{skill.abilityId}}.{{id}}.value"
+                       type="number" value="{{skill.value}}" min="0" max="13"
+                       data-dtype="Number"/>
+            </td>
+            <td class="skill-field rollable">
+                <input name="data.skills.{{skill.abilityId}}.{{id}}.total"
+                       type="number" value="{{skill.total}}" disabled
+                       data-dtype="Number"/>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

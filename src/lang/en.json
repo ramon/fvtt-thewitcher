@@ -3,8 +3,157 @@
     "language": "English",
     "version": "0.1.0",
 
+    "actor": {
+      "age": "Age",
+      "race": "Race",
+      "gender": "Gender",
+      "profession": "Profession",
+      "profession_abbr": "Prof",
+      "origin": "Origin",
+
+      "abilities": {
+        "int": {
+          "label": "Intelligence",
+          "abbr": "INT"
+        },
+        "ref": {
+          "label": "Reflexes",
+          "abbr": "REF"
+        },
+        "dex": {
+          "label": "Dexterity",
+          "abbr": "DEX"
+        },
+        "body": {
+          "label": "Body",
+          "abbr": "BODY"
+        },
+        "spd": {
+          "label": "Speed",
+          "abbr": "SPD"
+        },
+        "emp": {
+          "label": "Empathy",
+          "abbr": "EMP"
+        },
+        "cra": {
+          "label": "Craft",
+          "abbr": "CRA"
+        },
+        "will": {
+          "label": "Will",
+          "abbr": "WILL"
+        },
+        "luck": {
+          "label": "Luck",
+          "abbr": "LUCK"
+        }
+      },
+
+      "attributes": {
+        "stun" : {
+          "label": "Stun",
+          "abbr": "STUN"
+        },
+        "run": {
+          "label": "Run",
+          "abbr": "RUN"
+        },
+        "leap": {
+          "label": "Leap",
+          "abbr": "LEAP"
+        },
+        "hp": {
+          "label": "Health Points",
+          "abbr": "HP"
+        },
+        "sta": {
+          "label": "Stamina",
+          "abbr": "STA"
+        },
+        "enc": {
+          "label": "Encumbrance",
+          "abbr": "ENC"
+        },
+        "rec": {
+          "label": "Recovery",
+          "abbr": "REC"
+        },
+        "resolve": {
+          "label": "resolve",
+          "abbr": "Resolve"
+        },
+        "vigor": {
+          "label": "Vigor",
+          "abbr": "Vigor"
+        }
+      },
+
+      "skills": {
+        "awareness": "Awareness",
+        "business": "Business",
+        "deduction": "Deduction",
+        "education": "Education",
+        "language": "Language (2)",
+        "monster_lore": "Monster Lore (2)",
+        "social_etiquette": "Social Etiquette",
+        "streetwise": "Streetwise",
+        "tactics": "Tactics (2)",
+        "teaching": "Teaching",
+        "wilderness_survival": "Wilderness Survival",
+        "brawling": "Brawling",
+        "dodge": "Dodge/Escape",
+        "melee": "Melee",
+        "riding": "Riding",
+        "sailing": "Sailing",
+        "small_blades": "Small Blades",
+        "staff_spear": "Staff/Spear",
+        "swordsmanship": "Swordsmanship",
+        "archery": "Archery",
+        "athletics": "Athletics",
+        "crossbow": "Crossbow",
+        "sleight_of_hand": "Sleight of Hand",
+        "stealth": "Stealth",
+        "physique": "Physique",
+        "endurance": "Endurance",
+        "charisma": "Charisma",
+        "deceit": "Deceit",
+        "fine_arts": "Fine Arts",
+        "gambling": "Gambling",
+        "grooming_and_style": "Grooming and Style",
+        "human_perception": "Human Perception",
+        "leadership": "Leadership",
+        "persuasion": "Persuasion",
+        "performance": "Performance",
+        "seduction": "Seduction",
+        "alchemy": "Alchemy (2)",
+        "crafting": "Crafting (2)",
+        "disguise": "Disguise",
+        "first_aid": "First Aid",
+        "forgery": "Forgery",
+        "pick_lock": "Pick Lock",
+        "trap_crafting": "Trap Crafting (2)",
+        "courage": "Courage",
+        "hex_weaving": "Hex Weaving (2)",
+        "intimidation": "Intimidation",
+        "spell_casting": "Spell Casting (2)",
+        "resist_magic": "Resist Magic (2)",
+        "resist_coercion": "Resist Coercion",
+        "ritual_crafting": "Ritual Crafting (2)"
+      }
+    },
     "actor_sheet": {
-      "name": "Name"
+      "name": "Name",
+      "temp": "Temp",
+      "max_curr": "Maximum / Current",
+      "ability_points": "Total Points",
+      "wound_threshold": "Wound Threshold",
+      "bonus_melee_damage": "Bonus Melee DMG"
+    },
+
+    "rolls": {
+      "ability_prompt_title": "{ability} Ability Check",
+      "skill_prompt_title": "{skill} Skill Check"
     }
   }
 }

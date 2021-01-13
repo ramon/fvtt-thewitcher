@@ -1,3 +1,15 @@
+@flex-gap: 10px;
+
+.flex-gap {
+  gap: @flex-gap;
+  margin: calc(-1 * @flex-gap) 0 0 calc(-1 * @flex-gap);
+  width: calc(100% + @flex-gap);
+
+  > * {
+    margin: @flex-gap 0 0 @flex-gap !important;
+  }
+}
+
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -6,4 +18,23 @@
 
 .flex-between {
   justify-content: space-between;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
 }

@@ -14,6 +14,7 @@
   "author": "",
   "license": "",
   "devDependencies": {
+    "@types/jquery": "^3.5.5",
     "archiver": "^5.1.0",
     "chalk": "^4.1.0",
     "foundry-pc-types": "gitlab:foundry-projects/foundry-pc/foundry-pc-types",

@@ -1,0 +1,28 @@
+<div class="grid grid-3col">
+    <div class="skills-col" >
+        {{!-- Intelligence Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="int" skills=data.skills.int}}
+
+        {{!-- Reflex Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="ref" skills=data.skills.ref}}
+    </div>
+
+    <div class="skills-col">
+        {{!-- Dexterity Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="dex" skills=data.skills.dex}}
+
+        {{!-- Body Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="body" skills=data.skills.body}}
+
+        {{!-- Empathy Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="emp" skills=data.skills.emp}}
+    </div>
+
+    <div class="skills-col">
+        {{!-- Craft Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="cra" skills=data.skills.cra}}
+
+        {{!-- Will Skills --}}
+        {{> "systems/thewitcher/templates/actor/parts/actor-skill-list-table.hbs" abilityId="will" skills=data.skills.will}}
+    </div>
+</div>

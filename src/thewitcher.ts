@@ -17,6 +17,8 @@ import WitcherActor from "./module/actor/actor.js";
 import WitcherItem from "./module/item/item.js";
 import WitcherActorSheet from "./module/actor/actor-sheet.js";
 import WitcherItemSheet from "./module/item/item-sheet.js";
+import {WitcherDie} from "./module/die.js";
+import {THEWITCHER} from "./module/config.js";
 
 /* ------------------------------------ */
 /* Initialize system					*/
@@ -25,9 +27,14 @@ Hooks.once('init', async function() {
 	console.log('thewitcher | Initializing thewitcher');
 
 	game.thewitcher = {
-		WitcherActor,
-		WitcherItem
+		config: THEWITCHER,
+		entities: {
+			WitcherActor,
+			WitcherItem
+		}
 	}
+
+	CONFIG.THEWITCHER = THEWITCHER;
 
 	/**
 	 * Set an initiative formula for the system
@@ -50,8 +57,9 @@ Hooks.once('init', async function() {
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("thewitcher", WitcherItemSheet, { makeDefault: true });
 
-	// Assign custom classes and constants here
-
+	// Register The Witcher RPG Die
+	// CONFIG.Dice.types.append(WitcherDie);
+	CONFIG.Dice.terms["w"] = WitcherDie;
 	
 	// Register custom system settings
 	registerSettings();
@@ -59,7 +67,9 @@ Hooks.once('init', async function() {
 	// Preload Handlebars templates
 	await preloadTemplates();
 
-	// Register custom sheets (if any)
+	Handlebars.registerHelper('localizeAbility', (abilityId) => game.i18n.localize(`THEWITCHER.actor.abilities.${abilityId}.label`));
+	Handlebars.registerHelper("isResource", (data) => data.hasOwnProperty("max"));
+	Handlebars.registerHelper("getAbilitySkills", (data, abilityId) => data.skills.get(abilityId))
 });
 
 /* ------------------------------------ */
