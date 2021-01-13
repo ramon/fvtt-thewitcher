@@ -1,0 +1,28 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    {{!-- Sheet Header --}}
+    <header class="sheet-header flex-gap">
+        {{> "systems/thewitcher/templates/actor/parts/sheet-header.hbs"}}
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="skills">Skills</a>
+        <a class="item" data-tab="profession">Profession Skills</a>
+        <a class="item" data-tab="items">Gears & Inventory</a>
+        <a class="item" data-tab="spells">Magic & Spells</a>
+        <a class="item" data-tab="lifepath">Life path</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Skills Tab--}}
+        <div class="tab tab-skills" data-group="primary" data-tab="skills">
+            {{> "systems/thewitcher/templates/actor/parts/actor-skills.hbs" }}
+        </div>
+
+        {{!-- Profession Tab--}}
+        <div class="tab tab-profession" data-group="primary" data-tab="profession">
+            {{> "systems/thewitcher/templates/actor/parts/actor-professions.hbs" }}
+        </div>
+    </section>
+</form>

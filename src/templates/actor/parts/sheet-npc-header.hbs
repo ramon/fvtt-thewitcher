@@ -24,45 +24,40 @@
 <div class="basic-details flexcol flex-between">
     <img class="token" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="{{actor.name}}"/>
 
-    {{!-- Name and Age --}}
+    {{!-- Name and Type --}}
     <div class="flexrow flex-group-left">
-        <div class="form-group flex3">
+        <div class="form-group">
             <label for="actor-name">{{localize "THEWITCHER.actor_sheet.name"}}</label>
             <input name="name" type="text" value="{{actor.name}}"
                    id="actor-name"/>
         </div>
-        <div class="form-group actor">
-            <label for="actor-details-age">{{localize "THEWITCHER.actor.age"}}</label>
-            <input name="data.details.age" type="number" value="{{data.details.age}}" data-dtype="Number"
-                   id="actor-details-age"/>
+    </div>
+
+    {{!-- Type and Bounty --}}
+    <div class="flexrow flex-group-left">
+        <div class="form-group flex2">
+            <label for="actor-type">{{localize "THEWITCHER.actor.npc.type"}}</label>
+            <input name="data.type" type="number" value="{{data.type}}"
+                   id="actor-type"/>
+        </div>
+        <div class="form-group">
+            <label for="actor-bounty">{{localize "THEWITCHER.actor.npc.bounty"}}</label>
+            <input name="data.bounty" type="number" value="{{data.bounty}}" data-dtype="Number"
+                   id="actor-bounty"/>
         </div>
     </div>
 
-    {{!-- Race and Gender --}}
+    {{!-- Threat and Armor --}}
     <div class="flexrow flex-group-left">
-        <div class="form-group flex1">
-            <label for="actor-details-race">{{localize "THEWITCHER.actor.race"}}</label>
-            <input name="data.details.race" type="text" value="{{data.details.race}}"
-                   id="actor-details-race"/>
+        <div class="form-group flex2">
+            <label for="actor-threat">{{localize "THEWITCHER.actor.npc.threat"}}</label>
+            <input name="data.threat" type="text" value="{{data.threat}}"
+                   id="actor-threat"/>
         </div>
         <div class="form-group">
-            <label for="actor-details-gender">{{localize "THEWITCHER.actor.gender"}}</label>
-            <input name="data.details.gender" type="text" value="{{data.details.gender}}"
-                   id="actor-details-gender"/>
-        </div>
-    </div>
-
-    {{!-- PROF AND ORIGIN --}}
-    <div class="flexrow flex-group-left">
-        <div class="form-group">
-            <label for="actor-details-profession">{{localize "THEWITCHER.actor.profession_abbr"}}</label>
-            <input name="data.profession.name" type="text" value="{{data.profession.name}}"
-                   id="actor-details-profession"/>
-        </div>
-        <div class="form-group">
-            <label for="actor-details-origin">{{localize "THEWITCHER.actor.origin"}}</label>
-            <input name="data.details.origin" type="text" value="{{data.details.origin}}"
-                   id="actor-details-origin"/>
+            <label for="actor-armor">{{localize "THEWITCHER.actor.armor"}}</label>
+            <input name="data.armor" type="text" value="{{data.armor}}"
+                   id="actor-armor"/>
         </div>
     </div>
 </div>

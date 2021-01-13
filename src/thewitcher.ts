@@ -40,10 +40,7 @@ Hooks.once('init', async function() {
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
-	CONFIG.Combat.initiative = {
-		formula: "1d10",
-		decimals: 2
-	};
+	CONFIG.Combat.initiative.formula = "1d10+@abilities.ref.init";
 
 	// Define custom Entity classes. This will override the default Actor and
 	// Item classes to instead use our extended versions.

@@ -1,7 +1,8 @@
 {
   "Actor": {
     "types": [
-      "character"
+      "character",
+      "npc"
     ],
     "templates": {
       "base": {
@@ -91,12 +92,6 @@
             "value": 0,
             "label": "THEWITCHER.actor.attributes.rec.label",
             "abbr": "THEWITCHER.actor.attributes.rec.abbr"
-          },
-          "resolve": {
-            "value": 0,
-            "max": 0,
-            "label": "THEWITCHER.actor.attributes.resolve.label",
-            "abbr": "THEWITCHER.actor.attributes.resolve.abbr"
           }
         },
         "skills": {
@@ -366,6 +361,16 @@
           }
         }
       },
+      "additional_attributes": {
+        "attributes": {
+          "resolve": {
+            "value": 0,
+            "max": 0,
+            "label": "THEWITCHER.actor.attributes.resolve.label",
+            "abbr": "THEWITCHER.actor.attributes.resolve.abbr"
+          }
+        }
+      },
       "profession": {
         "profession": {
           "name": "",
@@ -438,6 +443,7 @@
     "character": {
       "templates": [
         "base",
+        "additional_attributes",
         "profession"
       ],
       "details": {
@@ -446,6 +452,45 @@
         "gender": "",
         "origin": ""
       }
+    },
+    "npc": {
+      "templates": ["base"],
+      "type": "",
+      "threat": "",
+      "bounty": null,
+      "armor": null,
+      "details": {
+        "height": "",
+        "weight": "",
+        "environment": "",
+        "intelligence": "",
+        "organization": ""
+      },
+      "vulnerabilities": [{
+        "name": "",
+        "description": ""
+      }],
+      "special_abilities": [{
+        "name": "",
+        "description": ""
+      }],
+      "loot": [{
+        "name": "",
+        "quantity": "",
+        "formula": ""
+      }],
+      "lore": [{
+        "name": "",
+        "skill": "",
+        "dc": null,
+        "description": ""
+      }],
+      "weapons": [{
+        "name": "",
+        "damage": "",
+        "effect": "",
+        "rof": null
+      }]
     }
   },
   "Item": {

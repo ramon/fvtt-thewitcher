@@ -10,6 +10,7 @@
       "profession": "Profession",
       "profession_abbr": "Prof",
       "origin": "Origin",
+      "armor": "Armor",
 
       "abilities": {
         "int": {
@@ -140,6 +141,12 @@
         "resist_magic": "Resist Magic (2)",
         "resist_coercion": "Resist Coercion",
         "ritual_crafting": "Ritual Crafting (2)"
+      },
+
+      "npc": {
+        "type": "Type",
+        "bounty": "Bounty",
+        "threat": "Threat"
       }
     },
     "actor_sheet": {

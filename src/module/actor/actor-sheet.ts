@@ -3,7 +3,7 @@ export default class WitcherActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["thewitcher", "sheet", "actor"],
-            template: "systems/thewitcher/templates/actor/actor-sheet.hbs",
+            template: "systems/thewitcher/templates/actor/character-sheet.hbs",
             width: 850, height: 700,
             resizable: true,
             scrollY: [
@@ -12,6 +12,11 @@ export default class WitcherActorSheet extends ActorSheet {
             ],
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary"}]
         });
+    }
+
+    get template(): string {
+        if ( !game.user.isGM && this.actor.limited ) return "systems/dnd5e/templates/actors/limited-sheet.hbs";
+        return `systems/thewitcher/templates/actor/${this.actor.data.type}-sheet.hbs`;
     }
 
     /**
