@@ -75,14 +75,11 @@
   }
 
   .sheet-body {
-    min-height: 100%;
-    .tab {
-      padding: 0 5px;
-      overflow: hidden auto;
-    }
+    min-height: calc(100% - 115px);
+    padding: 0 5px;
 
     .item-properties {
-      flex: 0 0 120px;
+      flex: 0 0 150px;
       margin: 5px 5px 5px 0;
       padding-right: 5px;
       border-right: @borderGroove;
@@ -95,6 +92,7 @@
           text-transform: unset;
         }
         input {
+          align-self: end;
           text-align: right;
           max-width: 45%;
           background: none;
@@ -124,6 +122,10 @@
       }
     }
   }
+
+  .sheet-body > .flexrow {
+    height: 100%;
+  }
 }
 
 /* ----------------------------------------- */
@@ -132,4 +134,6 @@
 
 .loot-header {
   margin-bottom: 10px;
+
+
 }

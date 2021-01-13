@@ -12,7 +12,13 @@ export default class WitcherItemSheet extends ItemSheet {
 
     /** @override */
     get template() {
-        return `systems/thewitcher/templates/item/${this.item.data.type}.hbs`;
+        const path = "systems/thewitcher/templates/item";
+
+        if (["service", "general_gear", "food_and_drink"].includes(this.item.data.type)) {
+            return `${path}/general.hbs`;
+        }
+
+        return `${path}${this.item.data.type}.hbs`;
     }
 
     /** @override */

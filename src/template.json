@@ -494,7 +494,7 @@
     }
   },
   "Item": {
-    "types": ["service", "general"],
+    "types": ["service", "general_gear", "food_and_drink"],
     "templates": {
       "base": {
         "cost": 0,
@@ -510,7 +510,10 @@
     "service": {
       "template": ["base"]
     },
-    "general": {
+    "general_gear": {
+      "templates": ["base", "physicalItem"]
+    },
+    "food_and_drink": {
       "templates": ["base", "physicalItem"]
     }
   }

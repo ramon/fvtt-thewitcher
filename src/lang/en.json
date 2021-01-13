@@ -160,7 +160,9 @@
 
     "item": {
       "type": {
-        "service": "Service"
+        "service": "Service",
+        "general_gear": "General",
+        "food_and_drink": "Food & Drink"
       }
     },
     "item_sheet": {
