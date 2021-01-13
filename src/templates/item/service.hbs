@@ -1,0 +1,21 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header loot-header">
+        <img class="profile" src="{{item.img}}" data-edit="img" alt="{{item.name}}" />
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}"
+                       placeholder="{{ localize 'THEWITCHER.item_sheet.name' }}" />
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{itemType}}</h4>
+                <span class="item-status">{{itemStatus}}</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body flexrow">
+        {{> "systems/thewitcher/templates/item/parts/description.hbs" }}
+    </section>
+</form>

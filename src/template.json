@@ -494,7 +494,24 @@
     }
   },
   "Item": {
-    "types": [],
-    "templates": []
+    "types": ["service", "general"],
+    "templates": {
+      "base": {
+        "cost": 0,
+        "description": {
+          "value": ""
+        }
+      },
+      "physicalItem": {
+        "quantity": 1,
+        "weight": 0
+      }
+    },
+    "service": {
+      "template": ["base"]
+    },
+    "general": {
+      "templates": ["base", "physicalItem"]
+    }
   }
 }

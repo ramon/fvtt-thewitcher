@@ -1,0 +1,20 @@
+<div class="item-properties">
+    {{#if isPhysical}}
+        <div class="form-group">
+            <label for="item_quantity">{{ localize "THEWITCHER.item_sheet.quantity" }}</label>
+            <input id="item_quantity" type="number" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+        </div>
+
+        <div class="form-group">
+            <label for="item_weight">{{ localize "THEWITCHER.item_sheet.weight" }}</label>
+            <input type="number" id="item_weight" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+        </div>
+    {{/if}}
+
+    <div class="form-group">
+        <label for="item_cost">{{ localize "THEWITCHER.item_sheet.cost" }}</label>
+        <input type="number" id="item_cost" name="data.cost" value="{{data.cost}}" data-dtype="Number"/>
+    </div>
+</div>
+
+{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}

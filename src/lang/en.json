@@ -158,6 +158,18 @@
       "bonus_melee_damage": "Bonus Melee DMG"
     },
 
+    "item": {
+      "type": {
+        "service": "Service"
+      }
+    },
+    "item_sheet": {
+      "name": "Item Name",
+      "cost": "Cost",
+      "weight": "Weight",
+      "quantity": "Quantity"
+    },
+
     "rolls": {
       "ability_prompt_title": "{ability} Ability Check",
       "skill_prompt_title": "{skill} Skill Check",

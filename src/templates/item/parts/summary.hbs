@@ -1,0 +1,22 @@
+{{#if isConcealable}}
+    <li>
+        <label for="item_concealment">{{ localize 'thewitcher.items.concealment' }}</label>
+        <select name="data.concealment" id="item_concealment">
+            {{#select data.concealment}}
+                {{#each config.concealmentTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </li>
+{{/if}}
+<li class="item-availability">
+    <label for="item_availability">{{localize 'thewitcher.items.availability'}}</label>
+    <select name="data.availability" id="item_availability">
+        {{#select data.availability}}
+            {{#each config.availabilityTypes as |name type|}}
+                <option value="{{type}}">{{localize name}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</li>

@@ -1,0 +1,135 @@
+@borderGroove: 2px groove #eeede0;
+
+&.sheet.item {
+  min-height: 400px;
+  max-height: 95%;
+  min-width: 480px;
+
+  .sheet-header {
+    flex: 0 0 100px;
+    border-bottom: @borderGroove;
+    padding-bottom: 4px;
+
+    /* Profile Image */
+    img.profile {
+      flex-basis: 100px;
+      max-width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border: 2px solid #000;
+    }
+
+    /* Character Name */
+    h1 {
+      height: 60px;
+      margin: 0;
+      padding: 5px;
+
+      input {
+        display: block;
+        height: 50px;
+        font-size: 32px;
+        margin: 0;
+        border: none;
+        background: none;
+        box-shadow: unset;
+        text-align: left;
+      }
+    }
+
+    .header-details {
+      align-self: baseline;
+    }
+
+    .item-subtitle {
+      flex: 0 0 120px;
+      height: 60px;
+      margin: 0;
+      padding: 5px;
+      text-align: right;
+      color: #7a7971;
+
+      .item-type {
+        font-size: 24px;
+        line-height: 26px;
+        margin: 0;
+
+        &.big-name {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      .item-status {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .sheet-navigation {
+    margin-bottom: 5px;
+    .item {
+      font-size: 18px;
+    }
+  }
+
+  .sheet-body {
+    min-height: 100%;
+    .tab {
+      padding: 0 5px;
+      overflow: hidden auto;
+    }
+
+    .item-properties {
+      flex: 0 0 120px;
+      margin: 5px 5px 5px 0;
+      padding-right: 5px;
+      border-right: @borderGroove;
+
+      .form-group {
+        margin: 0;
+
+        label {
+          line-height: 20px;
+          text-transform: unset;
+        }
+        input {
+          text-align: right;
+          max-width: 45%;
+          background: none;
+          border-color: transparent;
+
+          &:hover,
+          &:focus {
+            border-color: #111;
+          }
+        }
+      }
+
+      .properties-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin: 3px 0;
+          padding: 0 2px;
+          background: rgba(0, 0, 0, 0.05);
+          border: 2px groove lightslategray;
+          text-align: center;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------------------- */
+/*  Loot Sheet (No Tabs)                     */
+/* ----------------------------------------- */
+
+.loot-header {
+  margin-bottom: 10px;
+}
