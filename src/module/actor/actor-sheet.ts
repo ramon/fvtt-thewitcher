@@ -1,4 +1,19 @@
+import {prepareActiveEffectsCategories} from "../effects.js";
+
 export default class WitcherActorSheet extends ActorSheet {
+    private _filters: { features: Set<any>; effects: Set<any>; inventory: Set<any>; spells: Set<any>; };
+
+    constructor(...args) {
+        super(...args);
+
+        this._filters = {
+            inventory: new Set(),
+            spells: new Set(),
+            features: new Set(),
+            effects: new Set()
+        };
+    }
+
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -25,8 +40,13 @@ export default class WitcherActorSheet extends ActorSheet {
     getData(): ActorSheetData<any> {
         let data = mergeObject(super.getData(), {
             // @ts-ignore
+            isCharacter: this.entity.data.type === "character",
+            isNPC: this.entity.data.type === "npc",
             config: CONFIG.THEWITCHER
         });
+
+        // @ts-ignore
+        data.effects = prepareActiveEffectsCategories(this.entity.effects)
 
         return data;
     }
@@ -47,6 +67,7 @@ export default class WitcherActorSheet extends ActorSheet {
             // Ability Checks
             html.find(".ability-name").click(this._onRollAbilityTest.bind(this));
             html.find(".skill-name, .skill-field.rollable").click(this._onRollSkillTest.bind(this));
+            html.find(".profession-skill .profession-roll").click(this._onRollProfessionalSkillTest.bind(this));
         }
 
     }
@@ -74,5 +95,18 @@ export default class WitcherActorSheet extends ActorSheet {
         let abilityId = event.currentTarget.parentElement.dataset.abilityId;
         let skillId = event.currentTarget.parentElement.dataset.skillId
         this.actor.rollSkill(abilityId, skillId, {event: event});
+    }
+
+    /**
+     * Handle professional skills rolls.
+     *
+     * @param {Event} event The originating click event
+     * @private
+     */
+    _onRollProfessionalSkillTest(event) {
+        event.preventDefault();
+        const tree = event.currentTarget.dataset.tree;
+        const skillId = event.currentTarget.dataset.skillId;
+        this.actor.rollProfessionSkill((tree === "main"), tree, skillId, {event: event});
     }
 }

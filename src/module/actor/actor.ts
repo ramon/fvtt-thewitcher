@@ -5,18 +5,14 @@
 import {d10Roll} from "../dice.js";
 
 export default class WitcherActor extends Actor {
-    /**
-     * Augment the basic actor data with additional dynamic data.
-     */
-    prepareData() {
-        super.prepareData();
+    /** @override */
+    private prepareBaseData() {
+    }
 
-        const actorData = this.data;
-        const data = actorData.data;
-        const flags = actorData.flags.thewitcher || {};
-
-        if (actorData.type === "character") this._prepareCharacterData(actorData);
-        if (actorData.type === "npc") this._prepareNPCData(actorData);
+    /** @override */
+    private prepareDerivedData() {
+        if (this.data.type === "character") this._prepareCharacterData(this.data);
+        else if (this.data.type === "npc") this._prepareNPCData(this.data);
     }
 
     private _prepareCharacterData(actorData: ActorData<any>) {
@@ -96,10 +92,8 @@ export default class WitcherActor extends Actor {
         });
     }
 
-    private _getAbilityValue(abilityId: string): number {
-        const actorData = this.data;
-        const data = actorData.data;
-        const abilityData = data.abilities[abilityId];
+    private _getAbilityValue(abilityId:string): number {
+        const abilityData = getProperty(this.data, `data.abilities.${abilityId}`);
 
         if (abilityData.temp != null && abilityData.temp > 0) {
             return abilityData.temp;
@@ -108,12 +102,10 @@ export default class WitcherActor extends Actor {
         return abilityData.value;
     }
 
-    private _getSkillValue(abilityId, skillId: string, total = false): number {
-        const actorData = this.data;
-        const data = actorData.data;
-        const skillData = data.skills[abilityId][skillId];
+    private _getSkillValue(abilityId:string, skillId:string, with_ability:boolean = false): number {
+        const skillData = getProperty(this.data, `data.skills.${abilityId}.${skillId}`);
 
-        if (total) return skillData.total;
+        if (with_ability) return skillData.total;
         return skillData.value;
     }
 
@@ -159,6 +151,40 @@ export default class WitcherActor extends Actor {
             data: data,
             title: game.i18n.format("THEWITCHER.rolls.skill_prompt_title", {skill: label}),
             messageData: {"flags.thewitcher.roll": {type: "skill", abilityValue, skillValue}}
+        });
+        // @ts-ignore
+        rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});
+        return d10Roll(rollData);
+    }
+
+    /**
+     * Roll a Profession Skill test.
+     * @param {String} abilityId    The ability id (e.g. "int")
+     * @param {number} treeId      The skill tree key.
+     * @param {String} skillId      The ability id (e.g. "business")
+     * @param {boolean} main        True if the is the main profession skill
+     * @param options               Options which configure how ability tests are rolled
+     * @param templateData
+     */
+    rollProfessionSkill(main:boolean, treeId:number = null, skillId:string = null, options: object = {}, templateData = {}) {
+        let skill = getProperty(this.data, `data.profession.main`)
+
+        if (!main) {
+            skill = getProperty(this.data, `data.profession.tree.${treeId}.chain.${skillId}`)
+        }
+
+        const label = skill.name;
+        const abilityValue = this._getAbilityValue(skill.ability);
+        const skillValue = skill.level;
+
+        const terms = ["@ability + @professionLevel"];
+        const data = {ability: abilityValue, professionLevel: skillValue}
+
+        const rollData = mergeObject(options, {
+            terms: terms,
+            data: data,
+            title: game.i18n.format("THEWITCHER.rolls.profession_skill_prompt_title", {skill: label}),
+            messageData: {"flags.thewitcher.roll": {type: "profession_skill", skill, abilityValue, skillValue}}
         });
         // @ts-ignore
         rollData.speaker = options.speaker || ChatMessage.getSpeaker({actor: this});

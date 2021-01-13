@@ -19,7 +19,9 @@
         <div class="profession-body">
                     <textarea name="data.profession.main.description" cols="30"
                               rows="6">{{data.profession.main.description}}</textarea>
-            <!--                        <button class="profession-roll rollable" type="button">ROLL</button>-->
+            <button class="profession-roll rollable"
+                    data-tree="main"
+                    type="button">ROLL</button>
         </div>
     </div>
 
@@ -60,7 +62,10 @@
                                     <textarea name="data.profession.tree.{{key}}.chain.{{skillId}}.description"
                                               cols="30"
                                               rows="6">{{skill.description}}</textarea>
-                            <!--                                        <button class="profession-roll rollable" type="button">ROLL</button>-->
+                            <button class="profession-roll rollable"
+                                    data-tree="{{key}}"
+                                    data-skill-id="{{skillId}}"
+                                    type="button">ROLL</button>
                         </div>
                     </div>
                 {{/each}}

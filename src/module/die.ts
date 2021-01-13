@@ -60,7 +60,7 @@ export class WitcherDie extends Die {
     }
 
     /** @override */
-    explodeee(modifier, {recursive=true}={}) {
+    explode(modifier, {recursive=true}={}) {
         // Match the explode or "explode once" modifier
         const rgx = /[xX][oO]?([0-9]+)?([<>=]+)?([0-9]+)?/;
         const match = modifier.match(rgx);
@@ -108,6 +108,7 @@ export class WitcherDie extends Die {
 
     /** @override */
     roll({minimize=false, maximize=false}={}) {
+        console.log("ROLLING", arguments, this);
         const rand = CONFIG.Dice.randomUniform();
         let result = Math.ceil(rand * this.faces);
         if ( minimize ) result = 1;

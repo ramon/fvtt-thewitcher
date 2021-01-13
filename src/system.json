@@ -22,7 +22,7 @@
   "minimumCoreVersion": "0.7.6",
   "compatibleCoreVersion": "0.7.9",
   "url": "https://github.com/ramon/fvtt-thewitcher",
-  "manifest": "https://github.com/ramon/fvtt-thewitcher/raw/master/system.json",
+  "manifest": "https://raw.githubusercontent.com/ramon/fvtt-thewitcher/master/src/system.json",
   "download": "",
   "license": "LICENSE"
 }

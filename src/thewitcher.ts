@@ -40,6 +40,7 @@ Hooks.once('init', async function() {
 	 * Set an initiative formula for the system
 	 * @type {String}
 	 */
+	// @ts-ignore
 	CONFIG.Combat.initiative.formula = "1d10+@abilities.ref.init";
 
 	// Define custom Entity classes. This will override the default Actor and
@@ -55,7 +56,7 @@ Hooks.once('init', async function() {
 	Items.registerSheet("thewitcher", WitcherItemSheet, { makeDefault: true });
 
 	// Register The Witcher RPG Die
-	// CONFIG.Dice.types.append(WitcherDie);
+	CONFIG.Dice.types.unshift(WitcherDie);
 	CONFIG.Dice.terms["w"] = WitcherDie;
 	
 	// Register custom system settings
