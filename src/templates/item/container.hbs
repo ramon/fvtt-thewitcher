@@ -1,0 +1,51 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header loot-header">
+        <img class="profile" src="{{item.img}}" data-edit="img" alt="{{item.name}}"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}"
+                       placeholder="{{ localize 'THEWITCHER.item_sheet.name' }}"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{itemType}}</h4>
+                <span class="item-status">{{itemStatus}}</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="items">Items</a>
+    </nav>
+
+    <section class="sheet-body">
+        <div class="tab description flexrow" data-group="primary" data-tab="description">
+            {{> "systems/thewitcher/templates/item/parts/description.hbs" }}
+        </div>
+
+        <div class="tab details flexcol" data-group="primary" data-tab="details">
+            <h3 class="form-header">{{ localize  "THEWITCHER.item_sheet.item_detail" }}</h3>
+
+            {{!- Capacity -}}
+            <div class="form-group">
+                <label for="item-capacity">{{ localize "THEWITCHER.item.capacity" }}</label>
+                <input type="number" id="item-capacity" name="data.capacity" value="{{data.capacity}}"  data-dtype="Number" />
+            </div>
+
+            {{!- Capacity -}}
+            <div class="form-group">
+                <label for="item-size-allowed">{{ localize "THEWITCHER.item.size-allowed" }}</label>
+                <input type="number" id="item-size-allowed" name="data.size-allowed" value="{{data.size-allowed}}"  data-dtype="Number" />
+            </div>
+        </div>
+
+        <div class="tab items" data-group="primary" data-tab="items">
+        </div>
+
+
+
+    </section>
+</form>

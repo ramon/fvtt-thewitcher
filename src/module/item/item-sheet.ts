@@ -18,7 +18,7 @@ export default class WitcherItemSheet extends ItemSheet {
             return `${path}/general.hbs`;
         }
 
-        return `${path}${this.item.data.type}.hbs`;
+        return `${path}/${this.item.data.type}.hbs`;
     }
 
     /** @override */

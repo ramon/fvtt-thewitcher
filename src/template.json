@@ -494,7 +494,7 @@
     }
   },
   "Item": {
-    "types": ["service", "general_gear", "food_and_drink"],
+    "types": ["service", "general_gear", "food_and_drink", "container"],
     "templates": {
       "base": {
         "cost": 0,
@@ -515,6 +515,13 @@
     },
     "food_and_drink": {
       "templates": ["base", "physicalItem"]
+    },
+    "container": {
+      "templates": ["base", "physicalItem"],
+      "capacity": 0,
+      "size-allowed": "l",
+      "occupied": 0,
+      "items": []
     }
   }
 }

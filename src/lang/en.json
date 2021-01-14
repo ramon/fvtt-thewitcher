@@ -166,8 +166,11 @@
       "type": {
         "service": "Service",
         "general_gear": "General Gear",
-        "food_and_drink": "Food & Drink"
-      }
+        "food_and_drink": "Food & Drink",
+        "container": "Container"
+      },
+      "capacity": "Capacity",
+      "size-allowed": "Max Size Allowed"
     },
     "item_sheet": {
       "name": "Item Name",
@@ -175,7 +178,8 @@
       "weight": "Weight",
       "quantity": "Quantity",
       "charges": "Charges",
-      "usage": "Usage"
+      "usage": "Usage",
+      "item_detail": "Item Details"
     },
 
     "rolls": {
