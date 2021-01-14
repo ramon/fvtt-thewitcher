@@ -163,4 +163,23 @@
       &:nth-child(3) { --color: #e0a596; }
     }
   }
+
+  // Inventory item lists
+  .inventory-list {
+    padding: 0 5px;
+
+    .item {
+      .item-name {
+        cursor: pointer;
+        &.rollable:hover .item-image {
+          background-image: url("/icons/svg/d10-grey.svg") !important;
+        }
+        &.rollable .item-image:hover {
+          background-image: url("/icons/svg/d10-black.svg") !important;
+        }
+
+      }
+    }
+  }
+
 }

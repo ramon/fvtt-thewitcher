@@ -1,7 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
     <header class="sheet-header flex-gap">
-        {{> "systems/thewitcher/templates/actor/parts/sheet-npc-header.hbs"}}
+        {{> "systems/thewitcher/templates/actor/parts/npc-header.hbs"}}
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -16,7 +16,7 @@
     <section class="sheet-body">
         {{!-- Skills Tab--}}
         <div class="tab tab-skills" data-group="primary" data-tab="skills">
-            {{> "systems/thewitcher/templates/actor/parts/actor-skills.hbs" }}
+            {{> "systems/thewitcher/templates/actor/parts/skills.hbs" }}
         </div>
     </section>
 </form>

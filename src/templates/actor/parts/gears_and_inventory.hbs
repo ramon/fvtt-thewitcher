@@ -1,0 +1,68 @@
+<div class="flexrow">
+    <div class="items-list inventory-list flex3">
+        {{#each sections as |section sid|}}
+            <table data-section="{{sid}}">
+                <thead class="items-header">
+                <tr>
+                    <td class="section-name" colspan="100">{{localize section.label}}</td>
+                </tr>
+                <tr>
+                    <td class="item-name">{{localize "THEWITCHER.item_sheet.name"}}</td>
+                    {{#if section.columns}}
+                        {{#each section.columns}}
+                            <td class="item-detail {{css}}">{{label}}</td>
+                        {{/each}}
+                    {{else}}
+                        {{#if ../isCharacter}}
+                            <td class="item-detail item-weight">{{localize "THEWITCHER.item_sheet.weight"}}</td>
+                        {{/if}}
+                    {{/if}}
+
+                    {{#if ../owner}}
+                        <td class="item-controls">
+                            <a class="item-control item-create" title='{{localize "THEWITCHER.actions.item_create"}}'
+                               {{#each section.dataset as |v k|}}data-{{k}}="{{v}}"{{/each}}>
+                                <i class="fas fa-plus"></i> {{localize "THEWITCHER.actions.add"}}
+                            </a>
+                        </td>
+                    {{/if}}
+                </tr>
+                </thead>
+                <tbody class="item-list">
+                {{#each section.items as |item iid|}}
+                    <tr>
+                        <td class="item flexrow {{section.css}}"
+                            data-item-id="{{#if section.editableName}}{{iid}}{{else}}{{item._id}}{{/if}}">
+                            <div class="item-name rollable">
+                                {{#if section.editableName}}
+                                    <input type="text" value="{{item.name}}">
+                                {{else}}
+                                    <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                                    {{item.name~}}
+                                    {{~#if item.isStack}} ({{item.data.quantity}}){{/if}}
+                                {{/if}}
+                            </div>
+                        </td>
+                        <td class="item-detail item-weight">{{ item.data.weight }} {{localize
+                                "THEWITCHER.common.kilos_abbr"}}</td>
+                        {{#if ../../owner}}
+                            <td class="item-controls flexrow">
+                                {{#unless section.editableName}}
+                                    <a class="item-control item-edit"
+                                       title='{{localize "THEWITCHER.actions.item_edit"}}'><i
+                                            class="fas fa-edit"></i></a>
+                                {{/unless}}
+                                <a class="item-control item-delete" title='{{localize "DND5E.actions.item_delete"}}'><i
+                                        class="fas fa-trash"></i></a>
+                            </td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/each}}
+    </div>
+    <div class="encumbrance_and_armor">
+        bla bla
+    </div>
+</div>

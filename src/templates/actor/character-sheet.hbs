@@ -1,14 +1,14 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
     <header class="sheet-header flex-gap">
-        {{> "systems/thewitcher/templates/actor/parts/sheet-header.hbs"}}
+        {{> "systems/thewitcher/templates/actor/parts/header.hbs"}}
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="skills">Skills</a>
         <a class="item" data-tab="profession">Profession Skills</a>
-        <a class="item" data-tab="items">Gears & Inventory</a>
+        <a class="item" data-tab="gears_and_inventory">Gears & Inventory</a>
         <a class="item" data-tab="spells">Magic & Spells</a>
         <a class="item" data-tab="lifepath">Life path</a>
     </nav>
@@ -17,12 +17,17 @@
     <section class="sheet-body">
         {{!-- Skills Tab--}}
         <div class="tab tab-skills" data-group="primary" data-tab="skills">
-            {{> "systems/thewitcher/templates/actor/parts/actor-skills.hbs" }}
+            {{> "systems/thewitcher/templates/actor/parts/skills.hbs" }}
         </div>
 
         {{!-- Profession Tab--}}
         <div class="tab tab-profession" data-group="primary" data-tab="profession">
-            {{> "systems/thewitcher/templates/actor/parts/actor-professions.hbs" }}
+            {{> "systems/thewitcher/templates/actor/parts/professions.hbs" }}
+        </div>
+
+        {{!-- Gears and Inventory Tab--}}
+        <div class="tab tab-inventory" data-group="primary" data-tab="gears_and_inventory">
+            {{> "systems/thewitcher/templates/actor/parts/gears_and_inventory.hbs" sections=inventory }}
         </div>
     </section>
 </form>

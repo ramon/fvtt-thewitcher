@@ -23,9 +23,10 @@ export default class WitcherActorSheet extends ActorSheet {
             resizable: true,
             scrollY: [
                 ".tab-skills",
-                ".tab-profession"
+                ".tab-profession",
+                ".tabs-inventory .inventory-list"
             ],
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "summary"}]
+            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}]
         });
     }
 
@@ -45,10 +46,47 @@ export default class WitcherActorSheet extends ActorSheet {
             config: CONFIG.THEWITCHER
         });
 
+        this.prepareItems(data);
+
         // @ts-ignore
         data.effects = prepareActiveEffectsCategories(this.entity.effects)
 
         return data;
+    }
+
+    private prepareItems(data) {
+        const inventory = {
+            general_gear: { label: "THEWITCHER.item.type.general_gear", css: "general_gear", items: [], dataset: {type: "general_gear"} },
+            food_and_drink: { label: "THEWITCHER.item.type.food_and_drink", css: "food_and_drink", items: [], dataset: {type: "food_and_drink"} },
+        }
+
+        // Partition items by category
+        let [items, spells, features] = data.items.reduce((arr, item) => {
+            // @ts-ignore
+            item.img = item.img || DEFAULT_TOKEN;
+            item.isStack = Number.isInteger(item.data.quantity) && (item.data.quantity !== 1);
+
+            // Classify items into types
+            if (item.type === "spell" ) arr[1].push(item)
+            else if (item.type === "feature") arr[2].push(item)
+            else if ( Object.keys(inventory).includes(item.type) ) arr[0].push(item);
+            return arr;
+        }, [[], [], []]);
+
+        // Organize items
+        for ( let i of items ) {
+            i.data.quantity = i.data.quantity || 0;
+            i.data.weight = i.data.weight || 0;
+            // @ts-ignore
+            i.totalWeight = (i.data.quantity * i.data.weight).toNearest(0.1);
+            inventory[i.type].items.push(i);
+        }
+
+        // Assign and return
+        data.inventory = Object.values(inventory);
+        data.features = Object.values(features);
+
+
     }
 
     /**

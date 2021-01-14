@@ -46,7 +46,7 @@ export default class WitcherItemSheet extends ItemSheet {
     }
 
     private static getItemStatus(item): void {
-        if (["service", "general"].includes(item.type)) return;
+        if (["service", "general_gear", "food_and_drink"].includes(item.type)) return;
     }
 
     private static getItemProperties(item) {

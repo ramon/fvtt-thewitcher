@@ -17,7 +17,7 @@ form {
 }
 
 .sheet-tabs {
-  border-bottom: none;
+  border-bottom: none !important;
 
   .item.active {
     background: rgba(0,0,0,0.1);
@@ -33,4 +33,71 @@ form {
   flex: 1;
   overflow: hidden;
   background: rgba(0,0,0,0.1);
+}
+
+.items-list {
+  overflow-y: auto;
+
+  .item-list {}
+
+  // Item Name
+  .item-name {
+    width: 70%;
+    overflow: hidden;
+    font-size: 13px;
+    text-align: left;
+    white-space: nowrap;
+    padding-left: 10px;
+    line-height: 32px;
+
+    .item-image {
+      float: left;
+      height: 30px;
+      width: 30px;
+      background-size: 30px;
+      border: none;
+      margin-right: 5px;
+    }
+  }
+
+  .item-detail {
+    text-align: center;
+  }
+
+  // Control Buttons
+  .item-controls {
+    width: 60px;
+    justify-content: space-between;
+
+    a { font-size: 12px; text-align: center; }
+  }
+
+  .item {
+
+  }
+
+  .items-header {
+    height: 28px;
+    margin: 2px 0;
+    padding: 0;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    border: @borderGroove;
+    font-weight: bold;
+
+    > * {
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .item-name {
+      padding-left: 15px;
+    }
+
+    .section-name {
+      padding: 5px 15px;
+      text-align: left;
+      font-size: 16px;
+    }
+  }
 }

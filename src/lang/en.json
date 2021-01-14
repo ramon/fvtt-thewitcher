@@ -2,6 +2,10 @@
   "THEWITCHER" : {
     "language": "English",
     "version": "0.1.0",
+    "common": {
+      "kilos": "Kilos",
+      "kilos_abbr": "KG"
+    },
 
     "actor": {
       "age": "Age",
@@ -161,7 +165,7 @@
     "item": {
       "type": {
         "service": "Service",
-        "general_gear": "General",
+        "general_gear": "General Gear",
         "food_and_drink": "Food & Drink"
       }
     },
@@ -169,13 +173,22 @@
       "name": "Item Name",
       "cost": "Cost",
       "weight": "Weight",
-      "quantity": "Quantity"
+      "quantity": "Quantity",
+      "charges": "Charges",
+      "usage": "Usage"
     },
 
     "rolls": {
       "ability_prompt_title": "{ability} Ability Check",
       "skill_prompt_title": "{skill} Skill Check",
       "profession_skill_prompt_title": "{skill} Profession Skill Check"
+    },
+
+    "actions": {
+      "add": "Add",
+      "item_create": "Create item",
+      "item_edit": "Edit Item",
+      "item_delete": "Remove Item"
     }
   }
 }
