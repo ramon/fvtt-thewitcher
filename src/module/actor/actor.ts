@@ -52,7 +52,7 @@ export default class WitcherActor extends Actor {
         data.attributes.hp.max = physicalBase * 5;
         data.attributes.sta.max = physicalBase * 5;
         data.attributes.rec.value = physicalBase;
-        data.attributes.stun.max = physicalBase * 10;
+        data.attributes.stun.value = Math.min(physicalBase, 10);
 
         data.attributes.run.max = this._getAbilityValue("spd") * 3;
         data.attributes.leap.max = Math.floor((this._getAbilityValue("spd") * 3) / 5);

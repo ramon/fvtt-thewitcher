@@ -1,0 +1,41 @@
+@navHeight: 30px;
+@detailsHeight: 40px;
+@colorOlive: #4b4a44;
+
+&.sheet {
+  .summary {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 100%;
+    place-content: flex-end;
+    height: @detailsHeight;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: @borderGroove;
+    border-bottom: none;
+
+    li {
+      height: calc(100% - 6px);
+      float: left;
+      margin: 5px 0;
+      padding: 0 15px;
+      border-right: @borderGroove;
+      line-height: 34px;
+      color: @colorOlive;
+
+      select {
+        margin-left: 4px;
+        max-width: 120px;
+        font-size: 11px;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  .tab.details {
+  }
+}

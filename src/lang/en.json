@@ -167,10 +167,34 @@
         "service": "Service",
         "general_gear": "General Gear",
         "food_and_drink": "Food & Drink",
-        "container": "Container"
+        "container": "Container",
+        "alchemical_item": "Alchemical Item",
+        "tool_kit": "Tool Kit",
+        "rune": "Rune",
+        "glyph": "Glyph",
+        "mutagen": "Mutagen",
+        "potion": "Witcher Potion",
+        "blade_oil": "Blade Oil",
+        "decoction": "Witcher Decoction",
+        "spell": "Spell",
+        "ritual": "Ritual",
+        "hex": "Hex",
+        "component": "Component",
+        "substance": "Substance",
+        "diagram": "Diagram",
+        "formulae": "Formulae",
+        "weapon": "Weapon",
+        "armor": "Armor",
+        "armor_enhancement": "Armor Enhancement"
       },
       "capacity": "Capacity",
-      "size-allowed": "Max Size Allowed"
+      "availability": "Availability",
+      "availability_abbr": "Avail.",
+      "concealment": "Concealment",
+      "concealment_abbr": "Conc.",
+      "container_filters": "Container Filters",
+      "container_concealment": "Allowed Concealment",
+      "container_item_types": "Allowed Item Types"
     },
     "item_sheet": {
       "name": "Item Name",
@@ -179,7 +203,19 @@
       "quantity": "Quantity",
       "charges": "Charges",
       "usage": "Usage",
-      "item_detail": "Item Details"
+      "item_detail": "Item Details",
+      "availability": {
+        "everywhere": "Everywhere (E)",
+        "common": "Common (C)",
+        "poor": "Poor (P)",
+        "rare": "Rare (R)"
+      },
+      "concealment": {
+        "tiny": "Tiny (T)",
+        "small": "Small (S)",
+        "large": "Large (L)",
+        "cant_hide": "Can't Hide (N/A)"
+      }
     },
 
     "rolls": {

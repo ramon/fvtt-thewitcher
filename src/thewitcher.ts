@@ -66,8 +66,31 @@ Hooks.once('init', async function() {
 	await preloadTemplates();
 
 	Handlebars.registerHelper('localizeAbility', (abilityId) => game.i18n.localize(`THEWITCHER.actor.abilities.${abilityId}.label`));
+	Handlebars.registerHelper('localizeAvailability', (avail) => game.i18n.localize(`THEWITCHER.item_sheet.availability.${avail}`));
 	Handlebars.registerHelper("isResource", (data) => data.hasOwnProperty("max"));
 	Handlebars.registerHelper("getAbilitySkills", (data, abilityId) => data.skills.get(abilityId))
+	Handlebars.registerHelper("checkboxMultiple", (name, choices, options) => {
+		const localize = options.hash['localize'] ?? false;
+		let selected = options.hash['selected'] ?? null;
+		selected = Object.entries(selected).map(([k, v]) => {
+			if (v) {
+				return String(k)
+			}
+		});
+		console.log('selected', selected)
+
+		// Create an option
+		const option = (key, label, index) => {
+			if ( localize ) label = game.i18n.localize(label);
+			let isSelected = selected.includes(key);
+			html += `<label class="checkbox ${isSelected ? "checked" : ""}">${label} <input type="checkbox" name="${name}.${key}" ${isSelected ? "checked" : ""} /></label>`;
+		}
+
+		// Create the options
+		let html = "";
+		Object.entries(choices).forEach((e, i) => option(...e, i));
+		return new Handlebars.SafeString(html);
+	});
 });
 
 /* ------------------------------------ */

@@ -1,0 +1,91 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <header class="sheet-header loot-header">
+        <img class="profile" src="{{item.img}}" data-edit="img" alt="{{item.name}}"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}"
+                       placeholder="{{ localize 'THEWITCHER.item_sheet.name' }}"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{itemType}}</h4>
+                <span class="item-status">{{itemStatus}}</span>
+            </div>
+
+            <ul class="summary flexrow">
+                {{#if hasRarity}}
+                    {{#if data.availability}}
+                        <li class="item-availability">
+                            <label for="item-availability">{{ localize "THEWITCHER.item.availability" }}</label>
+                            <span class="value">{{localizeAvailability data.availability}}</span>
+                        </li>
+                    {{/if}}
+                {{/if}}
+            </ul>
+        </div>
+    </header>
+
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+        {{#if isContainer}}<a class="item" data-tab="items">Items</a>{{/if}}
+    </nav>
+
+    <section class="sheet-body">
+        <div class="tab description flexrow" data-group="primary" data-tab="description">
+            {{> "systems/thewitcher/templates/item/parts/description.hbs" }}
+        </div>
+
+        <div class="tab details" data-group="primary" data-tab="details">
+            {{#if hasRarity}}
+                <div class="form-group">
+                    <label for="item-availability">{{ localize "THEWITCHER.item.availability" }}</label>
+                    <select name="data.availability" id="item-availability">
+                        {{selectOptions config.availabilityTypes selected=data.availability localize=true}}
+                    </select>
+                </div>
+            {{/if}}
+
+            {{#if isConcealable}}
+                <div class="form-group">
+                    <label for="item-concealment">{{ localize "THEWITCHER.item.concealment" }}</label>
+                    <select name="data.concealment" id="item-concealment">
+                        {{selectOptions config.concealmentTypes selected=data.concealment localize=true}}
+                    </select>
+                </div>
+            {{/if}}
+
+            {{#if isContainer}}
+                <h4>Container Detail</h4>
+                {{!- Capacity -}}
+                <div class="form-group">
+                    <label for="item-capacity">{{ localize "THEWITCHER.item.capacity" }}</label>
+                    <input type="number" id="item-capacity" name="data.capacity" value="{{data.capacity}}"
+                           data-dtype="Number"/>
+                </div>
+
+                {{!- Container Filters -}}
+                <h5>{{ localize "THEWITCHER.item.container_filters" }}</h5>
+                <div class="form-group">
+                    <label for="item-allowed-concealment">{{ localize "THEWITCHER.item.container_concealment" }}</label>
+                    <div class="form-fields checkboxes">
+                        {{checkboxMultiple "data.allowed.concealment" config.concealmentTypes selected=data.allowed.concealment localize=true }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-allowed-item-types">{{ localize "THEWITCHER.item.container_itemtypes" }}</label>
+                    <input type="text" id="item-allowed-item-types" name="data.allowed.item-types"
+                           value="{{data.allowed.item-types}}" placeholder="Item Types"/>
+
+                </div>
+            {{/if}}
+        </div>
+
+        {{#if isContainer}}
+            <div class="tab items" data-group="primary" data-tab="items">
+            </div>
+        {{/if}}
+    </section>
+</form>

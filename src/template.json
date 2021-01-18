@@ -57,7 +57,6 @@
         "attributes": {
           "stun": {
             "value": 0,
-            "max": 0,
             "label": "THEWITCHER.actor.attributes.stun.label",
             "abbr": "THEWITCHER.actor.attributes.stun.abbr"
           },
@@ -74,12 +73,14 @@
           "hp": {
             "value": 0,
             "max": 0,
+            "resource": true,
             "label": "THEWITCHER.actor.attributes.hp.label",
             "abbr": "THEWITCHER.actor.attributes.hp.abbr"
           },
           "sta": {
             "value": 0,
             "max": 0,
+            "resource": true,
             "label": "THEWITCHER.actor.attributes.sta.label",
             "abbr": "THEWITCHER.actor.attributes.sta.abbr"
           },
@@ -98,126 +99,102 @@
           "int": {
             "awareness": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.awareness"
             },
             "business": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.business"
             },
             "deduction": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.deduction"
             },
             "education": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.education"
             },
             "language": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.language"
             },
             "monster_lore": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.monster_lore"
             },
             "social_etiquette": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.social_etiquette"
             },
             "streetwise": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.streetwise"
             },
             "tactics": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.tactics"
             },
             "teaching": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.teaching"
             },
             "wilderness_survival": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.wilderness_survival"
             }
           },
           "ref": {
             "brawling": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.brawling"
             },
             "dodge": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.dodge"
             },
             "melee": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.melee"
             },
             "riding": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.riding"
             },
             "sailing": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.sailing"
             },
             "small_blades": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.small_blades"
             },
             "staff_spear": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.staff_spear"
             },
             "swordsmanship": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.swordsmanship"
             }
           },
           "dex": {
             "archery": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.archery"
             },
             "athletics": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.athletics"
             },
             "crossbow": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.crossbow"
             },
             "sleight_of_hand": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.sleight_of_hand"
             },
             "stealth": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.stealth"
             }
           },
@@ -236,89 +213,72 @@
           "emp": {
             "charisma": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.charisma"
             },
             "deceit": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.deceit"
             },
             "fine_arts": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.fine_arts"
             },
             "gambling": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.gambling"
             },
             "grooming_and_style": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.grooming_and_style"
             },
             "human_perception": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.human_perception"
             },
             "leadership": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.leadership"
             },
             "persuasion": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.persuasion"
             },
             "performance": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.performance"
             },
             "seduction": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.seduction"
             }
           },
           "cra": {
             "alchemy": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.alchemy"
             },
             "crafting": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.crafting"
             },
             "disguise": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.disguise"
             },
             "first_aid": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.first_aid"
             },
             "forgery": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.forgery"
             },
             "pick_lock": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.pick_lock"
             },
             "trap_crafting": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.trap_crafting"
             }
           },
@@ -330,32 +290,26 @@
             },
             "hex_weaving": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.hex_weaving"
             },
             "intimidation": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.intimidation"
             },
             "spell_casting": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.spell_casting"
             },
             "resist_magic": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.resist_magic"
             },
             "resist_coercion": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.resist_coercion"
             },
             "ritual_crafting": {
               "value": 0,
-              "total": 0,
               "label": "THEWITCHER.actor.skills.ritual_crafting"
             }
           }
@@ -494,7 +448,18 @@
     }
   },
   "Item": {
-    "types": ["service", "general_gear", "food_and_drink", "container"],
+    "types": [
+      "service",
+      "general_gear",
+      "food_and_drink",
+      "container",
+      "alchemical_item",
+      "tool_kit",
+      "rune", "glyph",
+      "mutagen",
+      "potion", "blade_oil", "decoction",
+      "spell", "ritual", "hex"
+    ],
     "templates": {
       "base": {
         "cost": 0,
@@ -502,9 +467,32 @@
           "value": ""
         }
       },
+      "effectDescription": {
+        "effect": ""
+      },
+      "rarity": {
+        "availability": ""
+      },
       "physicalItem": {
         "quantity": 1,
         "weight": 0
+      },
+      "container": {
+        "capacity": 0,
+        "allowed": {
+          "concealment": {
+            "everywhere": false,
+            "common": false,
+            "poor": false,
+            "rare": false
+          },
+          "item-types": []
+        },
+        "additional_weight": 0,
+        "items": []
+      },
+      "concealableItem": {
+        "concealment": ""
       }
     },
     "service": {
@@ -517,11 +505,115 @@
       "templates": ["base", "physicalItem"]
     },
     "container": {
-      "templates": ["base", "physicalItem"],
-      "capacity": 0,
-      "size-allowed": "l",
-      "occupied": 0,
-      "items": []
+      "templates": ["base", "physicalItem", "container"]
+    },
+    "alchemical_item": {
+      "templates": ["base", "physicalItem", "effectDescription", "rarity"]
+    },
+    "tool_kit": {
+      "templates": ["base", "physicalItem", "effectDescription", "concealableItem", "rarity"]
+    },
+    "rune": {
+      "templates": ["base", "physicalItem"]
+    },
+    "glyph": {
+      "templates": ["base", "physicalItem"]
+    },
+    "potion": {
+      "templates": ["base, physicalItem"],
+      "effect": "",
+      "duration": {
+        "value": null,
+        "units": ""
+      },
+      "toxicity": null
+    },
+    "blade_oil": {
+      "templates": ["base", "physicalItem"]
+    },
+    "decoction": {
+      "templates": ["base", "physicalItem"]
+    },
+    "mutagen": {
+      "templates": ["base", "effectDescription"],
+      "source": "",
+      "dc": 15,
+      "minor_mutation": ""
+    },
+    "spell": {
+      "cost": null,
+      "effect": "",
+      "range": {
+        "value": null,
+        "units": ""
+      },
+      "duration": {
+        "value": null,
+        "units": "",
+        "cost": null
+      },
+      "defense": ""
+    },
+    "ritual": {
+      "cost": null,
+      "effect": "",
+      "preparation_time": {
+        "value": null,
+        "units": ""
+      },
+      "dc": null,
+      "duration": {
+        "value": null,
+        "units": "",
+        "cost": null
+      },
+      "components": []
+    },
+    "hex": {
+      "cost": null,
+      "effect": "",
+      "danger": "",
+      "requirement": ""
+    },
+    "component": {
+      "templates": ["base", "physicalItem", "rarity"],
+      "group": "",
+      "location": "",
+      "dc": null
+    },
+    "substance": {
+      "templates": ["base", "physicalItem", "rarity"],
+      "group": "",
+      "location": "",
+      "dc": null
+    },
+    "diagram": {
+      "templates": ["base"],
+      "group": "",
+      "level": "",
+      "dc": null,
+      "time": {
+        "value": null,
+        "units": ""
+      },
+      "components": [{
+        "name": "",
+        "quantity": null
+      }],
+      "investment": null
+    },
+    "formulae": {
+      "templates": ["base"],
+      "level": "",
+      "dc": null,
+      "time": {
+        "value": null,
+        "units": ""
+      },
+      "substances": [{
+        "name": "",
+        "quantity": null
+      }]
     }
   }
 }

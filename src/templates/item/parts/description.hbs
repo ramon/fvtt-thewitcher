@@ -1,3 +1,10 @@
+{{#if hasEffect}}
+    <div class="item-effect">
+        <label for="item-effect">Effect</label>
+        <textarea name="data.effect" id="item-effect">{{data.effect}}</textarea>
+    </div>
+{{/if}}
+
 <div class="item-properties">
     {{#if isPhysical}}
         <div class="form-group">
@@ -15,6 +22,13 @@
         <label for="item_cost">{{ localize "THEWITCHER.item_sheet.cost" }}</label>
         <input type="number" id="item_cost" name="data.cost" value="{{data.cost}}" data-dtype="Number"/>
     </div>
+
+    <ol class="properties-list">
+        {{#each itemProperties}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ol>
+
 </div>
 
 {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}

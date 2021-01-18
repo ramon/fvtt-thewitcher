@@ -1,5 +1,3 @@
-@borderGroove: 2px groove #eeede0;
-
 &.sheet.item {
   min-height: 400px;
   max-height: 95%;
@@ -7,8 +5,7 @@
 
   .sheet-header {
     flex: 0 0 100px;
-    border-bottom: @borderGroove;
-    padding-bottom: 4px;
+
 
     /* Profile Image */
     img.profile {
@@ -75,14 +72,50 @@
   }
 
   .sheet-body {
-    min-height: calc(100% - 115px);
-    padding: 0 5px;
+    &.flexrow { min-height: calc(100% - 115px); }
+
+    .item-effect {
+      position: relative;
+      background: #7a7971;
+      color: aliceblue;
+      border: 1px solid #44191A;
+      border-radius: 4px;
+      margin: 15px;
+      min-height: 95px;
+      box-shadow: 1px 1px 5px black;
+      flex-basis: 100%;
+
+      label {
+        position: absolute;
+        top: 30px;
+        left: -30px;
+        background: #b5b3a4;
+        color: #44191A;
+        border: 1px solid #eeede0;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 5px black;
+        transform: rotate(270deg);
+      }
+
+      textarea {
+        padding-left: 20px;
+        min-height: 110px;
+        max-height: 150px;
+        resize: vertical;
+        color: antiquewhite;
+        border: none;
+      }
+    }
 
     .item-properties {
       flex: 0 0 150px;
       margin: 5px 5px 5px 0;
       padding-right: 5px;
       border-right: @borderGroove;
+      min-height: 100%;
 
       .form-group {
         margin: 0;
@@ -107,7 +140,7 @@
 
       .properties-list {
         list-style: none;
-        margin: 0;
+        margin: 10px 0 0;
         padding: 0;
 
         li {
@@ -118,12 +151,61 @@
           text-align: center;
           font-size: 12px;
           line-height: 18px;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .details {
+      // Item Sheet form fields
+      input[type="text"],
+      input[type="number"],
+      select {
+        height: 24px;
+        border: 1px solid @colorTan;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+
+        > label {
+          font-weight: bold;
+          text-transform: none;
+        }
+
+        span {
+          text-align: center;
+          line-height: 24px;
+        }
+      }
+
+      .checkboxes {
+        flex: 0 0 100%;
+        justify-content: flex-start;
+
+        .checkbox {
+          border: 1px solid red;
+          color: whitesmoke;
+          background: #e0a596;
+          padding: 0 10px;
+          height: 30px;
+          line-height: 30px;
+          cursor: pointer;
+
+          input { display: none; visibility: hidden; }
+
+          &.checked {
+            background: #44191A;
+          }
         }
       }
     }
   }
 
-  .sheet-body > .flexrow {
+  .sheet-body > .flexrow,
+  .sheet-body > .tab {
+    min-height: 100%;
     height: 100%;
   }
 }
